@@ -24,7 +24,7 @@
         <h1> edit saldo</h1>
     <form action="" method="post">
         <label for="Jumlah_Saldo">jumlah saldo</label>
-    <input type="text" name="Nama_User" value="<?= $data['Jumlah_Saldo']?>" id="Jumlah_Saldo">
+    <input type="text" name="Jumlah_Saldo" value="<?= $data['Jumlah_Saldo']?>" id="Jumlah_Saldo">
     <button type="submit" name="Ubah">Ubah</button>
     <button type="submit" name="list">
         <a href="saldo.php " target="_blank" >Daftar Saldo</a>
@@ -32,9 +32,9 @@
     </form>  
     <?php
         if(isset($_POST["Ubah"])){
-            $nama_User  = $_POST['Jumlah_Saldo'] ;
+            $Jumlah_saldo  = $_POST['Jumlah_Saldo'] ;
             
-            mysqli_query($koneksi, "UPDATE User SET WHERE id = $id");
+            mysqli_query($koneksi, "UPDATE saldo SET WHERE id = $id");
             header("Location:welcome.blade.php");
         }
 ?>
