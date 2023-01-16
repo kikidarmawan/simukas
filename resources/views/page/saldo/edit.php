@@ -35,7 +35,7 @@
             $Jumlah_saldo  = $_POST['Jumlah_Saldo'] ;
             
             mysqli_query($conn, "UPDATE saldo SET WHERE id = $id");
-            header("Location:welcome.blade.php");
+            header("Location:dashboard.blade.php");
         }
 ?>
 </body>
