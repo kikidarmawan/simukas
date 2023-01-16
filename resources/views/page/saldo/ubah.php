@@ -1,5 +1,5 @@
 <?php
-    $koneksi = mysqli_connect("localhost","root","","simukas");
+    $conn = mysqli_connect("localhost","root","","simukas");
     $id = $_GET["id"];
     $kueri = mysqli_query($koneksi, "SELECT * FROM saldo WHERE id=$id");
     $data = mysqli_fetch_assoc($kueri);

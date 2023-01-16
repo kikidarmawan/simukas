@@ -1,6 +1,6 @@
 <?php
-    $konek = mysqli_connect('localhost','root','','simukas');  
+    $conn = mysqli_connect('localhost','root','','simukas');  
     $id = $_GET["id"];  
-    mysqli_query ($conn,"DELETE FROM saldo WHERE id= $id");
+    mysqli_query ($koneksi,"DELETE FROM saldo WHERE id= $id");
     header("location:dashboard.blade.php")
 ?>
