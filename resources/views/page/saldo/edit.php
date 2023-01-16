@@ -34,7 +34,7 @@
         if(isset($_POST["Ubah"])){
             $Jumlah_saldo  = $_POST['Jumlah_Saldo'] ;
             
-            mysqli_query($koneksi, "UPDATE saldo SET WHERE id = $id");
+            mysqli_query($conn, "UPDATE saldo SET WHERE id = $id");
             header("Location:welcome.blade.php");
         }
 ?>
