@@ -27,7 +27,7 @@
     <input type="text" name="Jumlah_Saldo" value="<?= $data['Jumlah_Saldo']?>" id="Jumlah_Saldo">
     <button type="submit" name="Ubah">Ubah</button>
     <button type="submit" name="list">
-        <a href="saldo.php " target="_blank" >Daftar Saldo</a>
+        <a href="dashboard.blade.php " target="_blank" >Daftar Saldo</a>
     </button>
     </form>  
     <?php
