@@ -35,7 +35,7 @@
             $nama_User  = $_POST['Jumlah_Saldo'] ;
             
             mysqli_query($koneksi, "UPDATE User SET WHERE id = $id");
-            header("Location:saldo.php");
+            header("Location:welcome.blade.php");
         }
 ?>
 </body>
