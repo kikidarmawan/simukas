@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Top Navigation + Sidebar</title>
+  <title>simukas | Top Navigation + Sidebar</title>
 
   @push('style')
     <link rel="stylesheet" href="/views/page/kegiatan/database.bootstrap4.min.css">
@@ -61,22 +61,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <th>kegiatan</th>
                                 <th>Opsi</th>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($data as $i)
-                                <tr>
-                                    <th>{{ $loop->iteration }}</th>
-                                    <td>{{ $i->nm_saldo }}</td>
-                                    <td>Rp.{{ number_format($i->jumlah, 2, '.', '.') }}</td>
-                                    <td>
-                                        <a href="" class="btn btn-sm btn-secondary">Lihat Riwayat</a>
-                                        <a href="" class="btn btn-sm btn-warning">Ubah</a>
-                                        <a href="" class="btn btn-sm btn-danger">Hapus</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-
+                        </thead>                       
                     </table>
                 </div>
             </div>
