@@ -20,6 +20,7 @@
                         <li class="breadcrumb-item"><a href="#">Master Data</a></li>
                         <li class="breadcrumb-item"><a href="/master/saldo">Saldo</a></li>
                         <li class="breadcrumb-item active"><a href="#">Hapus</a></li>
+                        <a href="" class="btn btn-sm btn-danger">Hapus</a>
                     </ol>
                 </div>
             </div>
