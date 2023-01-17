@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MasterData\SaldoController;
+use App\Http\Controllers\MasterData\KegiatanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,6 @@ Route::group([
     });
 
     Route::group(['prefix' => 'master'], function () {
-        Route::resource('kegiatan', kegiatanController::class);
+        Route::resource('kegiatan', KegiatanController::class);
     });
 });
