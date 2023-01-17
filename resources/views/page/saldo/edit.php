@@ -1,7 +1,7 @@
 <?php
     $koneksi = mysqli_connect("localhost","root","","simukas");
     $id = $_GET["id"];
-    $kueri = mysqli_query($koneksi, "SELECT * FROM user WHERE id=$id");
+    $kueri = mysqli_query($koneksi, "SELECT * FROM saldo WHERE id=$id");
     $data = mysqli_fetch_assoc($kueri);
     ?>
 
@@ -21,21 +21,21 @@
 </head>
 <body>
 
-        <h1> edit user</h1>
+        <h1> edit saldo</h1>
     <form action="" method="post">
-        <label for="Nama_User">Nama user</label>
-    <input type="text" name="Nama_User" value="<?= $data['nama_user']?>" id="Nama_User">
+        <label for="Jumlah_saldo">saldo</label>
+    <input type="text" name="Jumlah_saldo" value="<?= $data['Jumlah_saldo']?>" id="Jumlah_saldo">
     <button type="submit" name="edit">Edit</button>
     <button type="submit" name="list">
-        <a href="index.blade.php " target="_blank" >Daftar User</a>
+        <a href="index.blade.php " target="_blank" >jumlah saldo</a>
     </button>
     </form>  
     <?php
         if(isset($_POST["edit"])){
-            $nama_User  = $_POST['Nama_User'] ;
+            $Jumlah_saldo  = $_POST['Jumlah_Saldo'] ;
 
-            mysqli_query($koneksi, "UPDATE User SET WHERE id = $id");
-            header("Location:index.blade.php");
+            mysqli_query($koneksi, "UPDATE saldo SET WHERE id = $id");
+            header("Location:dashboard.blade.php");
         }
 ?>
 </body>
