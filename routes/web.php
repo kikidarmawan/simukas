@@ -38,4 +38,8 @@ Route::group([
     Route::group(['prefix' => 'master'], function () {
         Route::resource('saldo', SaldoController::class);
     });
+
+    Route::group(['prefix' => 'master'], function () {
+        Route::resource('kegiatan', kegiatanController::class);
+    });
 });
