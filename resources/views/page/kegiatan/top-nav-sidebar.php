@@ -21,13 +21,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Master Data</h1>
+                    <h1>Data kegiatan</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="#">Master Data</a></li>
-                        <li class="breadcrumb-item active"><a href="#">Saldo</a></li>
+                        <li class="breadcrumb-item active"><a href="#">kegiatan</a></li>
                     </ol>
                 </div>
             </div>
@@ -40,7 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Data Saldo</h3>
+                <h3 class="card-title">Data kegiatan</h3>
 
                 <div class="card-tools">
                     {{-- <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -58,8 +58,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Nama Saldo</th>
-                                <th>Saldo</th>
+                                <th>kegiatan</th>
                                 <th>Opsi</th>
                             </tr>
                         </thead>
