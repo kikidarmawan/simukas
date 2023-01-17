@@ -1,108 +1,91 @@
-<?php
-// Process delete operation after confirmation
-if(isset($_POST["id"]) && !empty($_POST["id"])){
-    // Include config file
-    require_once "config.php";
-    
-    // Prepare a delete statement
-    $sql = "DELETE FROM saldo WHERE id = ?";
-    
-    if($stmt = mysqli_prepare($link, $sql)){
-        // Bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "i", $param_id);
-        
-        // Set parameters
-        $param_id = trim($_POST["id"]);
-        
-        // Attempt to execute the prepared statement
-        if(mysqli_stmt_execute($stmt)){
-            // Records deleted successfully. Redirect to landing page
-            header("location: dashboard.blade.php");
-            exit();
-        } else{
-            echo "Oops! Something went wrong. Please try again later.";
-        }
-    }
-     
-    // Close statement
-    mysqli_stmt_close($stmt);
-    
-    // Close connection
-    mysqli_close($link);
-} else{
-    // Check existence of id parameter
-    if(empty(trim($_GET["id"]))){
-        // URL doesn't contain id parameter. Redirect to error page
-        header("location: error.php");
-        exit();
-    }
-}
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>View Record</title>
-    @push('style')
-    <link rel="stylesheet" href="/views/page/kegiatan/database.bootstrap4.min.css">
-    <link rel="stylesheet" href="/views/page/kegiatan/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="/views/page/kegiatan/buttons.bootstrap4.min.css">
+@extends('layouts.panel')
+@section('title')
+    Data Saldo
+@endsection
+
+@push('style')
 @endpush
-    <style type="text/css">
-        .wrapper{
-            width: 500px;
-            margin: 0 auto;
-        }
-    </style>
-</head>
-<body>
-    <div class="wrapper">
+
+@section('content')
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="page-header">
-                        <h1>Delete Record</h1>
-                    </div>
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <div class="alert alert-danger fade in">
-                            <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>"/>
-                            <p>Are you sure you want to delete this record?</p><br>
-                            <p>
-                                <input type="submit" value="Yes" class="btn btn-danger">
-                                <a href="index.php" class="btn btn-default">No</a>
-                            </p>
-                        </div>
-                    </form>
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Master Data</h1>
                 </div>
-            </div>        
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="#">Master Data</a></li>
+                        <li class="breadcrumb-item"><a href="/master/saldo">Saldo</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Hapus</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Hapus Saldo</h3>
+
+                <div class="card-tools">
+                    {{-- <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button> --}}
+                </div>
+            </div>
+            <form action="/master/saldo" method="post">
+                @csrf
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="nama" class="form-label">Nama Saldo</label>
+                                <input type="text" name="nama"
+                                    class="form-control @error('nama') is-invalid @enderror" id="nama"
+                                    value="{{ old('nama') }}" required maxlength="100" autocomplete="off"
+                                    placeholder="Misal: Rekening BCA Perusahaan">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="jumlah" class="form-label">Jumlah Saldo</label>
+                                <input type="text" name="jumlah"
+                                    class="form-control @error('jumlah') is-invalid @enderror" id="jumlah"
+                                    value="{{ old('jumlah') }}" required min="0"
+                                    placeholder="Masukan sisa saldo saat ini">
+                                @error('jumlah')
+                                    <span class="invalid-feedback">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-hapus"></i> hapus</button>
+                    <button type="reset" class="btn btn-outline-secondary">hapus</button>
+                </div>
+            </form>
+            <!-- /.card-footer-->
         </div>
-    </div>
-    @push('script')
-    <script src="/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="/plugins/jszip/jszip.min.js"></script>
-    <script src="/plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="/plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+        <!-- /.card -->
 
-    <script>
-        $(function() {
-            $("#example1").DataTable({
-                "responsive": true,
-                "lengthChange": false,
-                "autoWidth": true,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    </section>
+    <!-- /.content -->
+@endsection
 
-        })
-    </script>
+@push('script')
 @endpush
-
-</body>
-</html>
