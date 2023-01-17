@@ -51,21 +51,17 @@
 
                             <div class="form-group">
                                 <label for="nama" class="form-label">Nama Saldo</label>
-                                <input type="text" name="nama"
-                                    class="form-control @error('nama') is-invalid @enderror" id="nama"
-                                    value="{{ old('nama') }}" required maxlength="100" autocomplete="off"
-                                    placeholder="Misal: Rekening BCA Perusahaan">
                             </div>
                         </div>
                         <div class="col-md-6">
 
                             <div class="form-group">
-                                <label for="jumlah" class="form-label">Jumlah Saldo</label>
-                                <input type="text" name="jumlah"
-                                    class="form-control @error('jumlah') is-invalid @enderror" id="jumlah"
-                                    value="{{ old('jumlah') }}" required min="0"
-                                    placeholder="Masukan sisa saldo saat ini">
-                                @error('jumlah')
+                                <label for="hapus" class="form-label">Jumlah Saldo</label>
+                                <input type="text" name="hapus"
+                                    class="form-control @error('hapus') is-invalid @enderror" id="hapus"
+                                    value="{{ old('hapus') }}" required min="0"
+                                    placeholder="anda yakin ingin hapus ini?">
+                                @error('hapus')
                                     <span class="invalid-feedback">
                                         {{ $message }}
                                     </span>
@@ -76,7 +72,7 @@
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary"><i class="fas fa-hapus"></i> hapus</button>
-                    <button type="reset" class="btn btn-outline-secondary">hapus</button>
+                    <button type="hapus" class="btn btn-outline-secondary">hapus</button>
                 </div>
             </form>
             <!-- /.card-footer-->
