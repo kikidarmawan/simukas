@@ -43,4 +43,8 @@ Route::group([
     Route::group(['prefix' => 'master'], function () {
         Route::resource('kegiatan', KegiatanController::class);
     });
+
+    Route::group(['prefix' => 'master'], function () {
+        Route::resource('Pengguna', PenggunaController::class);
+    });
 });
