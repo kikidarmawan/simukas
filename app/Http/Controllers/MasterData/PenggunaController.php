@@ -44,7 +44,7 @@ class PenggunaController extends Controller
             'jumlah'    => 'required|numeric|min:0'
         ]);
 
-        kegiatan::create([
+        Pengguna::create([
             'nm_pengguna'  => $request->nama,
             'tempat_tinggal'    => $request->tempat_tinggal
         ]);
