@@ -49,7 +49,7 @@ class PenggunaController extends Controller
             'tempat_tinggal'    => $request->tempat_tinggal
         ]);
 
-        return redirect()->to('/master/kegiatan')->with('berhasil', 'Berhasil menyimpan data');
+        return redirect()->to('/master/saldo')->with('berhasil', 'Berhasil menyimpan data');
     }
 
     /**
