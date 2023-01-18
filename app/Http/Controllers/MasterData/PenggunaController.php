@@ -16,7 +16,7 @@ class PenggunaController extends Controller
     public function index()
     {
         $data = Pengguna::all();
-        return view('page.pengguna.index', [
+        return view('page.Pengguna.index', [
             'data'  => $data
         ]);
     }
@@ -28,7 +28,7 @@ class PenggunaController extends Controller
      */
     public function create()
     {
-        return view('page.pengguna.create');
+        return view('page.Pengguna.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class PenggunaController extends Controller
         ]);
 
         Pengguna::create([
-            'nm_pengguna'  => $request->nama,
+            'nm_Pengguna'  => $request->nama,
             'tempat_tinggal'    => $request->tempat_tinggal
         ]);
 
