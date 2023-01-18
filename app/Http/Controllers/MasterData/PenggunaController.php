@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Pengguna;
 use Illuminate\Http\Request;
 
-class KegiatanController extends Controller
+class PenggunaController extends Controller
 {
     /**
      * Display a listing of the resource.
