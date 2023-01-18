@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\MasterData;
 
 use App\Http\Controllers\Controller;
-use App\Models\Kegiatan;
+use App\Models\Pengguna;
 use Illuminate\Http\Request;
 
 class KegiatanController extends Controller
@@ -15,8 +15,8 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-        $data = Kegiatan::all();
-        return view('page.kegiatan.index', [
+        $data = Pengguna::all();
+        return view('page.Pengguna.index', [
             'data'  => $data
         ]);
     }
@@ -28,7 +28,7 @@ class KegiatanController extends Controller
      */
     public function create()
     {
-        return view('page.kegiatan.create');
+        return view('page.Pengguna.create');
     }
 
     /**
