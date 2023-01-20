@@ -41,15 +41,15 @@ class PenggunaController extends Controller
     {
         $this->validate($request, [
             'nama'  => 'required|string|max:100',
-            'jumlah'    => 'required|numeric|min:0'
+            'tgl_pembuatan'    => 'required|numeric|min:0'
         ]);
 
-        Pengguna::create([
-            'nm_Pengguna'  => $request->nama,
-            'tempat_tinggal'    => $request->tempat_tinggal
+        Saldo::create([
+            'nm_pengguna'  => $request->nama,
+            'tempat_tinggal'    => $request->jumlah
         ]);
 
-        return redirect()->to('/master/saldo')->with('berhasil', 'Berhasil menyimpan data');
+        return redirect()->to('/master/Pengguna')->with('berhasil', 'Berhasil menyimpan data');
     }
 
     /**
