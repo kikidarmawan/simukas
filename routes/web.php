@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MasterData\SaldoController;
 use App\Http\Controllers\MasterData\KegiatanController;
+use App\Http\Controllers\MasterData\PenggunaController;
 use Illuminate\Support\Facades\Route;
 
 /*
