@@ -49,7 +49,7 @@ class KegiatanController extends Controller
             'jumlah'    => $request->jumlah
         ]);
 
-        return redirect()->to('/master/saldo')->with('berhasil', 'Berhasil menyimpan data');
+        return redirect()->to('/master/kegiatan')->with('berhasil', 'Berhasil menyimpan data');
     }
 
     /**
