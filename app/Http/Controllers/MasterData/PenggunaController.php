@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\MasterData\Pengguna;
+namespace App\Http\Controllers\MasterData;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pengguna;
