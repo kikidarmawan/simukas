@@ -57,7 +57,7 @@
                                     class="form-control @error('kegiatan') is-invalid @enderror" id="kegiatan"
                                     value="{{ old('rekening') }}" required maxlength="100" autocomplete="off"
                                     placeholder="Misal: transfer uang">
-                                @error('nama')
+                                @error('nominal terlalu rendah')
                                     <span class="invalid-feedback">
                                         {{ $message }}
                                     </span>
