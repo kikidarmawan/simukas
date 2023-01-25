@@ -90,7 +90,7 @@
         </div>
         <!-- /.card -->
 
-    </section>
+    </action>
     <!-- /.content -->
 @endsection
 
