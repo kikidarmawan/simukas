@@ -249,13 +249,14 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../layout/top-nav.html" class="nav-link">
+                                    <a href="/master/transaksi" 
+                                    class="nav-link {{ request()->is('master/transaksi*') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Buat Transaksi</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../layout/top-nav-sidebar.html" class="nav-link">
+                                    <a href="/master/transaksi" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Daftar Transaksi</p>
                                     </a>
