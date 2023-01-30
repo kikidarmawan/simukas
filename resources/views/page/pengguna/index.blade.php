@@ -43,7 +43,7 @@
                     <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
                         <i class="fas fa-times"></i>
                     </button> --}}
-                    <a href="/master/saldo/create" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> tambahkan pengguna</a>
+                    <a href="/master/pengguna/create" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> tambahkan pengguna</a>
                 </div>
             </div>
             <div class="card-body">
