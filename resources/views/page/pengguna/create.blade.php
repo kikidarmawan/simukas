@@ -41,11 +41,11 @@
                     <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
                         <i class="fas fa-times"></i>
                     </button> --}}
-                    <a href="/master/saldo" class="btn btn-outline-danger btn-sm"><i class="fas fa-arrow-left"></i>
+                    <a href="/master/Pengguna" class="btn btn-outline-danger btn-sm"><i class="fas fa-arrow-left"></i>
                         Kembali</a>
                 </div>
             </div>
-            <form action="/master/saldo" method="post">
+            <form action="/master/Pengguna" method="post">
                 @csrf
                 <div class="card-body">
                     <div class="row">
