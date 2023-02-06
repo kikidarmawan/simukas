@@ -249,8 +249,8 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/master/transaksi" 
-                                    class="nav-link {{ request()->is('master/transaksi*') ? 'active' : '' }}">
+                                    <a href="/master/transaksi/create" 
+                                    class="nav-link {{ request()->is('master/transaksi/create*') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Buat Transaksi</p>
                                     </a>

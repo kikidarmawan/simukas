@@ -48,4 +48,7 @@ Route::group([
     Route::group(['prefix' => 'master'], function () {
         Route::resource('Pengguna', PenggunaController::class);
     });
+    Route::group(['prefix' => 'master'], function () {
+        Route::resource('transaksi', TransaksiController::class);
+    });
 });

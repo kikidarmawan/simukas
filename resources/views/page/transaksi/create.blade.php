@@ -1,6 +1,6 @@
 @extends('layouts.panel')
 @section('title')
-    Data Saldo
+    Buat Transaksi
 @endsection
 
 @push('style')
@@ -18,7 +18,7 @@
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="#">Master Data</a></li>
-                        <li class="breadcrumb-item"><a href="/master/saldo">Saldo</a></li>
+                        <li class="breadcrumb-item"><a href="/master/transaksi">Transaksi</a></li>
                         <li class="breadcrumb-item active"><a href="#">Buat</a></li>
                     </ol>
                 </div>
@@ -32,7 +32,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Buat Saldo</h3>
+                <h3 class="card-title">Buat Transaksi</h3>
 
                 <div class="card-tools">
                     {{-- <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -41,45 +41,59 @@
                     <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
                         <i class="fas fa-times"></i>
                     </button> --}}
-                    <a href="/master/saldo" class="btn btn-outline-danger btn-sm"><i class="fas fa-arrow-left"></i>
+                    <a href="/master/transaksi" class="btn btn-outline-danger btn-sm"><i class="fas fa-arrow-left"></i>
                         Kembali</a>
                 </div>
             </div>
-            <form action="/master/saldo" method="post">
+            <form action="/master/transaksi" method="post">
                 @csrf
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-
+                    <div class="row">  
+                        <div class="col-md-12">
                             <div class="form-group">
-                                <label for="nama" class="form-label">Nama Saldo</label>
+                                <label for="nama" class="form-label">Nama Transaksi</label>
                                 <input type="text" name="nama"
                                     class="form-control @error('nama') is-invalid @enderror" id="nama"
                                     value="{{ old('nama') }}" required maxlength="100" autocomplete="off"
-                                    placeholder="Misal: Rekening BCA Perusahaan">
+                                    placeholder="#">
                                 @error('nama')
                                     <span class="invalid-feedback">
                                         {{ $message }}
                                     </span>
                                 @enderror
                             </div>
-                        </div>
-                        <div class="col-md-6">
-
                             <div class="form-group">
-                                <label for="jumlah" class="form-label">Jumlah Saldo</label>
-                                <input type="text" name="jumlah"
+                                <label for="nama" class="form-label">Tanggal</label>
+                                <input type="date" name="tanggal" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="keterangan" class="form-label">Keterangan</label>
+                                <input type="text" name="keterangan"
+                                    class="form-control @error('keterangan') is-invalid @enderror" id="keterangan"
+                                    value="{{ old('keterangan') }}" required min="0"
+                                    placeholder="#">
+                                @error('keterangan')
+                                    <span class="invalid-feedback">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="jumlah" class="form-label">Jumlah Nominal </label>
+                                <input type="integer" name="jumlah"
                                     class="form-control @error('jumlah') is-invalid @enderror" id="jumlah"
                                     value="{{ old('jumlah') }}" required min="0"
-                                    placeholder="Masukan sisa saldo saat ini">
+                                    placeholder="#">
                                 @error('jumlah')
                                     <span class="invalid-feedback">
                                         {{ $message }}
                                     </span>
                                 @enderror
                             </div>
-                        </div>
-                    </div>
+                        </div>                         
+                     </div>             
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
