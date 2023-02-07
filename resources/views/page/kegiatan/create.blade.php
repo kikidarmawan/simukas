@@ -41,11 +41,11 @@
                     <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
                         <i class="fas fa-times"></i>
                     </button> --}}
-                    <a href="/master/saldo" class="btn btn-outline-danger btn-sm"><i class="fas fa-arrow-left"></i>
+                    <a href="/master/kegiatan" class="btn btn-outline-danger btn-sm"><i class="fas fa-arrow-left"></i>
                         Kembali</a>
                 </div>
             </div>
-            <form action="/master/saldo" method="post">
+            <form action="/master/kegiatan" method="post">
                 @csrf
                 <div class="card-body">
                     <div class="row">
@@ -57,7 +57,7 @@
                                     class="form-control @error('kegiatan') is-invalid @enderror" id="kegiatan"
                                     value="{{ old('rekening') }}" required maxlength="100" autocomplete="off"
                                     placeholder="Misal: transfer uang">
-                                @error('nama')
+                                @error('nominal terlalu rendah')
                                     <span class="invalid-feedback">
                                         {{ $message }}
                                     </span>

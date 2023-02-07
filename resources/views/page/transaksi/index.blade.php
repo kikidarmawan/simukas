@@ -21,7 +21,7 @@
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="/transaksi">Transaksi</a></li>
-                        <li class="breadcrumb-item active"><a href="#">Buat Transaksi</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Daftar Transaksi</a></li>
                     </ol>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                                     <td>{{ $i->keterangan }}</td>
                                     <td>{{ $i->jumlah }}</td>
                                     <td>
-                                        <a href="/master/transaksi/create" class="btn btn-sm btn-warning">Ubah</a>
+                                        <a href="" class="btn btn-sm btn-warning">Ubah</a>
                                         <a href="" class="btn btn-sm btn-danger">Hapus</a>
                                     </td>
                                 </tr>

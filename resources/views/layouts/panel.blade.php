@@ -218,7 +218,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../layout/top-nav.html" class="nav-link">
+                                    <a href="/master/Pengguna" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data Pengguna</p>
                                     </a>
@@ -231,7 +231,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../layout/top-nav-sidebar.html" class="nav-link">
+                                    <a href="/master/kegiatan" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data Kegiatan</p>
                                     </a>
@@ -251,12 +251,14 @@
                                 <li class="nav-item">
                                     <a href="/master/transaksi/create" 
                                     class="nav-link {{ request()->is('master/transaksi/create*') ? 'active' : '' }}">
+                                    <a href="/master/buat_transaksi" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Buat Transaksi</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/master/transaksi" class="nav-link">
+                                    <a href="/master/daftar_transaksi" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Daftar Transaksi</p>
                                     </a>

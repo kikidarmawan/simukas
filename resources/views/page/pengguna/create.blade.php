@@ -18,7 +18,7 @@
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="#">Master Data</a></li>
-                        <li class="breadcrumb-item"><a href="/master/saldo">Pengguna</a></li>
+                        <li class="breadcrumb-item"><a href="/master/pengguna">Pengguna</a></li>
                         <li class="breadcrumb-item active"><a href="#">Buat</a></li>
                     </ol>
                 </div>
@@ -35,17 +35,17 @@
                 <h3 class="card-title">Buat Pengguna</h3>
 
                 <div class="card-tools">
+                <div class="card-tools">
                     {{-- <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
                     </button>
                     <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
                         <i class="fas fa-times"></i>
                     </button> --}}
-                    <a href="/master/saldo" class="btn btn-outline-danger btn-sm"><i class="fas fa-arrow-left"></i>
-                        Kembali</a>
+                   
                 </div>
             </div>
-            <form action="/master/saldo" method="post">
+            <form action="/master/Pengguna" method="post">
                 @csrf
                 <div class="card-body">
                     <div class="row">
@@ -67,12 +67,12 @@
                         <div class="col-md-6">
 
                             <div class="form-group">
-                                <label for="nama" class="form-label">Nama Pengguna</label>
-                                <input type="text" name="nama"
-                                    class="form-control @error('Nama_Pengguna') is-invalid @enderror" id="Nama_Pengguna"
+                                <label for="Nomor" class="form-label">No rekening</label>
+                                <input type="integer" name="Nomor"
+                                    class="form-control @error('No_Rekening') is-invalid @enderror" id="No_Rekening"
                                     value="{{ old('jumlah') }}" required min="0"
-                                    placeholder="Berhasil Di Tambahkan">
-                                @error(Gagal')
+                                    placeholder="no rek">
+                                @error('Gagal')
                                     <span class="invalid-feedback">
                                         {{ $message }}
                                     </span>
@@ -82,8 +82,8 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-cancel"></i> batal</button>
-                    <button type="reset" class="btn btn-outline-back">Kembali</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
+                    <button type="reset" class="btn btn-outline-back">Reset</button>
                 </div>
             </form>
             <!-- /.card-footer-->
