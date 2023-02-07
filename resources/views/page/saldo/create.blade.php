@@ -45,7 +45,7 @@
                         Kembali</a>
                 </div>
             </div>
-            <form action="/master/saldo" method="post">
+            <form action="/master/saldo/" method="post">
                 @csrf
                 <div class="card-body">
                     <div class="row">
