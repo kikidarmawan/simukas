@@ -67,10 +67,12 @@
                         <div class="col-md-12">
                              <div class="form-group">
                                 <label for="enum" class="form-label">Jenis Kelamin</label>
-                                <input type="integer" name="jenis_kelamin"
-                                    class="form-control @error('No_Rekening') is-invalid @enderror" id="jenis_kelamin"
+                                <select name="jenis_kelamin"
+                                    class="form-control @error('jenis_kelamin') is-invalid @enderror" id="jenis_kelamin"
                                     value="{{ old('jenis_kelamin') }}" required min="0">
-                                                           
+                                    <option>--Pilih Jenis Kelamin--</option>
+                                    
+                                </select>                       
                                  @error('Gagal')
                                     <span class="invalid-feedback">
                                         {{ $message }}

@@ -91,7 +91,25 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>                         
+                        </div> 
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="keterangan" class="form-label">Saldo</label>
+                                <select name="saldo"
+                                    class="form-control @error('saldo') is-invalid @enderror" id="saldo"
+                                    value="{{ old('nm_saldo') }}" required min="0">
+                                    <option>--Pilih Saldo--</option>
+                                    @foreach($saldo as $value)
+                                    <option value="{{ $value->id }}">{{ $value->nm_saldo }}</option>
+                                    @endforeach
+                               
+                                </select>
+                                @error('keterangan')
+                                    <span class="invalid-feedback">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
+                            </div>                        
                      </div>             
                 </div>
                 <div class="card-footer">
