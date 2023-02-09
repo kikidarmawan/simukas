@@ -66,10 +66,14 @@
                                     <td>{{ $i->tgl_transaksi }}</td>
                                     <td>{{ $i->nm_transaksi }}</td>
                                     <td>{{ $i->keterangan }}</td>
-                                    <td>{{ $i->jumlah }}</td>
+                                    <td>Rp.{{ number_format($i->jumlah, 2, '.', '.') }}</td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-warning">Ubah</a>
-                                        <a href="" class="btn btn-sm btn-danger">Hapus</a>
+                                        <a href="/master/transaksi/{{$i->id}}/edit" class="btn btn-sm btn-warning">Ubah</a>
+                                        <form action="/master/transaksi/{{$i->id}}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                         <button onclick="return confirm('Yakin akan dihapus?')" type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

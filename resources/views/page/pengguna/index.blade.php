@@ -52,8 +52,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>nama pengguna</th>
-                                <th>tempat tinggal</th>
+                                <th>Nama Pengguna</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Alamat</th>
                                 <th>Opsi</th>
                             </tr>
                         </thead>
@@ -61,11 +62,11 @@
                             @foreach ($data as $i)
                                 <tr>
                                     <th>{{ $loop->iteration }}</th>
-                                    <td>{{ $i->nm_saldo }}</td>
-                                    <td>Rp.{{ number_format($i->jumlah, 2, '.', '.') }}</td>
+                                    <td>{{ $i->nama }}</td>
+                                    <td>{{ $i->jenis_kelamin }}</td>
+                                    <td>{{ $i->alamat }}</td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-secondary">Lihat Riwayat</a>
-                                        <a href="" class="btn btn-sm btn-warning">Ubah</a>
+                                       <a href="" class="btn btn-sm btn-warning">Ubah</a>
                                         <a href="" class="btn btn-sm btn-danger">Hapus</a>
                                     </td>
                                 </tr>

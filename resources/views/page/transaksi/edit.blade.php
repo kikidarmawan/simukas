@@ -44,8 +44,9 @@
                         Kembali</a>
                 </div>
             </div>
-            <form action="/master/transaksi" method="post">
+            <form action="/master/transaksi/{{ $transaksi->id }}" method="post">
                 @csrf
+                @method('put')
                 <div class="card-body">
                     <div class="row">  
                         <div class="col-md-12">
@@ -53,7 +54,7 @@
                                 <label for="nama" class="form-label">Nama Transaksi</label>
                                 <input type="text" name="nama"
                                     class="form-control @error('nama') is-invalid @enderror" id="nama"
-                                    value="{{ old('nama') }}" required maxlength="100" autocomplete="off"
+                                    value="{{$transaksi->nm_transaksi }}" required maxlength="100" autocomplete="off"
                                     placeholder="#">
                                 @error('nama')
                                     <span class="invalid-feedback">
@@ -63,7 +64,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="nama" class="form-label">Tanggal</label>
-                                <input type="date" name="tanggal" class="form-control">
+                                <input type="date" name="tanggal" class="form-control" value="{{$transaksi->tgl_transaksi}}">
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -71,7 +72,7 @@
                                 <label for="keterangan" class="form-label">Keterangan</label>
                                 <input type="text" name="keterangan"
                                     class="form-control @error('keterangan') is-invalid @enderror" id="keterangan"
-                                    value="{{ old('keterangan') }}" required min="0"
+                                    value="{{ $transaksi->keterangan }}" required min="0"
                                     placeholder="#">
                                 @error('keterangan')
                                     <span class="invalid-feedback">
@@ -81,9 +82,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="jumlah" class="form-label">Jumlah Nominal </label>
-                                <input type="integer" name="jumlah"
+                                <input type="number" name="jumlah"
                                     class="form-control @error('jumlah') is-invalid @enderror" id="jumlah"
-                                    value="{{ old('jumlah') }}" required min="0"
+                                    value="{{$transaksi->jumlah }}" required min="0"
                                     placeholder="#">
                                 @error('jumlah')
                                     <span class="invalid-feedback">
