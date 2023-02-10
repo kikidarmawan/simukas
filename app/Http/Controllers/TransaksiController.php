@@ -45,5 +45,4 @@ class TransaksiController extends Controller
         ]);
         return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil menyimpan data');
     }
-
 }

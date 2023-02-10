@@ -40,7 +40,7 @@
                     {{-- <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
                     </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <button type="button" class="btn btn-tool" data-card-widget="Remove" title="Remove">
                         <i class="fas fa-times"></i>
                     </button> --}}
                     <a href="/master/saldo/create" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Buat Saldo</a>
@@ -64,9 +64,12 @@
                                     <td>{{ $i->nm_saldo }}</td>
                                     <td>Rp.{{ number_format($i->jumlah, 2, '.', '.') }}</td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-secondary">Lihat Riwayat</a>
                                         <a href="/master/saldo/{{$i->id}}/edit" class="btn btn-sm btn-warning">Topup</a>
-                                        <a href="/master/saldo" class="btn btn-sm btn-danger">Hapus</a>
+                                       <from action="/master/saldo/{{$i->id}}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button onclick="return confirm('Yakin Mau Dihapus?')" type="submit" class="btn btn-sm btn-danger">Hapus</buttom>
+                                       </form>
                                     </td>
                                 </tr>
                             @endforeach

@@ -68,11 +68,11 @@
                         <div class="col-md-6">
 
                             <div class="form-group">
-                                <label for="Nomor" class="form-label">No rekening</label>
-                                <input type="integer" name="Nomor"
-                                    class="form-control @error('No_Rekening') is-invalid @enderror" id="No_Rekening"
-                                    value="{{ old('jumlah') }}" required min="0"
-                                    placeholder="no rek">
+                                <label for="Alamat" class="form-label">Alamat</label>
+                                <input type="Varchar" name="Alamat"
+                                    class="form-control @error('Alamat') is-invalid @enderror" id="Alamat"
+                                    value="{{ old('Cianjur') }}" required min="0"
+                                    placeholder="Cianjur">
                                 @error('Gagal')
                                     <span class="invalid-feedback">
                                         {{ $message }}
@@ -83,7 +83,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i>  Simpan</button>
                     <button type="reset" class="btn btn-outline-back">Reset</button>
                 </div>
             </form>

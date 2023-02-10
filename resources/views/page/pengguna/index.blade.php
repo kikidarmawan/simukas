@@ -65,7 +65,7 @@
                                     <td>Rp.{{ number_format($i->jumlah, 2, '.', '.') }}</td>
                                     <td>
                                         <a href="" class="btn btn-sm btn-secondary">Lihat Riwayat</a>
-                                        <a href="" class="btn btn-sm btn-warning">Ubah</a>
+                                        <a href="/master/Pengguna/{{$i->id}}/edit" class="btn btn-sm btn-warning">Ubah</a>
                                         <a href="" class="btn btn-sm btn-danger">Hapus</a>
                                     </td>
                                 </tr>

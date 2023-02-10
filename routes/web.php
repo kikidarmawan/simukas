@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MasterData\SaldoController;
 use App\Http\Controllers\MasterData\KegiatanController;
 use App\Http\Controllers\MasterData\PenggunaController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*

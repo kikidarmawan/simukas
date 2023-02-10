@@ -89,20 +89,16 @@ class SaldoController extends Controller
         $saldo->jumlah += $request->topup;
         $saldo->update();
 
-        return redirect()->back();
+        return redirect()->to('/master/saldo')->with('berhasil', 'Tambah Saldo Berhasil');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        $saldo = Saldo::findOrFail($id);
-        $saldo->delete();
-    
-        return redirect()->back();
+    $saldo = saldo::find($id);
+    $saldo->delete();
+
+    return redirect('/master/saldo')->with('Berhasil', 'Data Berhsil Di Hapus!');
     }
-}
+
+    }
+
