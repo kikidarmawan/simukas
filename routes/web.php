@@ -37,7 +37,6 @@ Route::group([
 ], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-
     Route::group(['prefix' => 'master'], function () {
         Route::resource('saldo', SaldoController::class);
     });
@@ -52,4 +51,5 @@ Route::group([
     Route::group(['prefix' => 'master'], function () {
         Route::resource('transaksi', TransaksiController::class);
     });
+
 });

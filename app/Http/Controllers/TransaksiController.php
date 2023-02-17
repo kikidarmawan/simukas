@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaksi;
+use App\Models\Saldo;
 use Auth;
 
 class TransaksiController extends Controller
@@ -23,7 +24,8 @@ class TransaksiController extends Controller
 
     public function create()
     {
-        return view('page.transaksi.create');
+        $saldo= Saldo::all();
+        return view('page.transaksi.create', compact("saldo"));
     }
 
        /**
@@ -35,14 +37,49 @@ class TransaksiController extends Controller
     public function store(Request $request)
     {
         // return $request->all();
+        $saldo = Saldo::find($request->saldo);
+        if($saldo->jumlah < $request->jumlah){
+            return redirect()->to('/master/transaksi')->with('gagal', 'Saldo tidak mencukupi');
+        }
+        $saldo->jumlah=$saldo->jumlah-$request->jumlah;
+        $saldo->update();
+
         $transaksi = Transaksi::create([
             'id_user' => Auth::user()->id,
             'nm_transaksi' => $request->nama,
             'tgl_transaksi' => $request->tanggal,
             'keterangan' => $request->keterangan,
             'jumlah' => $request->jumlah,
+            'id_saldo' => $request->saldo
 
         ]);
+
+         return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil menyimpan data');
+    }
+
+    public function edit($id)
+    {
+        $transaksi= Transaksi::find($id);
+        return view('page/transaksi/edit',compact('transaksi'));
+    }
+
+    public function update(Request $request, $id){
+        $transaksi= Transaksi::find($id);
+        $transaksi->update([
+            'id_user' => Auth::user()->id,
+            'nm_transaksi' => $request->nama,
+            'tgl_transaksi' => $request->tanggal,
+            'keterangan' => $request->keterangan,
+            'jumlah' => $request->jumlah,
+        ]);
+
         return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil menyimpan data');
+    }
+
+    public function destroy($id){
+        $transaksi = Transaksi::find($id);
+        $transaksi->delete();
+
+        return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil menghapus data');
     }
 }
