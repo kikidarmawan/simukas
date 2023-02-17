@@ -52,4 +52,8 @@ Route::group([
         Route::resource('transaksi', TransaksiController::class);
     });
 
-});
+
+
+
+    //charts controller
+ });
