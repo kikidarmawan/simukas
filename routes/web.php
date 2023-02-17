@@ -48,4 +48,8 @@ Route::group([
     Route::group(['prefix' => 'master'], function () {
         Route::resource('Pengguna', PenggunaController::class);
     });
-});
+
+     
+
+    //charts controller
+ });
