@@ -249,7 +249,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/master/transaksi/create" 
+                                    <a href="/master/transaksi/create"
                                     class="nav-link {{ request()->is('master/transaksi/create*') ? 'active' : '' }}">
                                     <a href="/master/transaksi" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
@@ -367,11 +367,12 @@
     <!-- ./wrapper -->
 
     <!-- jQuery -->
-    <script src="/plugins/jquery/jquery.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> --}}
+    <script src="plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="/dist/js/adminlte.min.js"></script>
+    <script src="dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     {{-- <script src="/dist/js/demo.js"></script> --}}
 

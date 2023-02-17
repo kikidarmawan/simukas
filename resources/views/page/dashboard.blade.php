@@ -21,7 +21,6 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
-
      <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -113,15 +112,17 @@
                 <div class="row">
                   <div class="col-md-8">
                     <p class="text-center">
-                      <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+                      <strong>Sales: Jan, {{ date('Y') }} - Des, {{ date('Y') }}</strong>
                     </p>
 
                     <div class="chart">
                       <!-- Sales Chart Canvas -->
-                      <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
+                      <canvas id="areaChart" height="180" style="height: 180px;"></canvas>
                     </div>
                     <!-- /.chart-responsive -->
                   </div>
+
+
                   <!-- /.col -->
                   <div class="col-md-4">
                     <p class="text-center">
@@ -198,5 +199,70 @@
         </div>
         <!-- /.row -->
         <!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
+
 @endsection
+
+@push('script')
+<script src="plugins/chart.js/Chart.min.js"></script>
+<script>
+    $(function () {
+      var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+
+      var areaChartData = {
+        labels  : ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juni', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+        datasets: [
+          {
+            label               : 'Saldo',
+            backgroundColor     : 'rgba(60,141,188,0.9)',
+            borderColor         : 'rgba(60,141,188,0.8)',
+            pointRadius          : false,
+            pointColor          : '#3b8bba',
+            pointStrokeColor    : 'rgba(60,141,188,1)',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(60,141,188,1)',
+            data                : {!! json_encode($dataSaldo) !!}
+          },
+          {
+            label               : 'Pengeluaran',
+            backgroundColor     : 'rgba(210, 214, 222, 1)',
+            borderColor         : 'rgba(210, 214, 222, 1)',
+            pointRadius         : false,
+            pointColor          : 'rgba(210, 214, 222, 1)',
+            pointStrokeColor    : '#c1c7d1',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(220,220,220,1)',
+            data                : {!! json_encode($dataPengeluaran) !!}
+          },
+        ]
+      }
+
+      var areaChartOptions = {
+        maintainAspectRatio : false,
+        responsive : true,
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [{
+            gridLines : {
+              display : false,
+            }
+          }],
+          yAxes: [{
+            gridLines : {
+              display : false,
+            }
+          }]
+        }
+      }
+
+      // This will get the first returned node in the jQuery collection.
+      new Chart(areaChartCanvas, {
+        type: 'line',
+        data: areaChartData,
+        options: areaChartOptions
+      })
+
+    })
+  </script>
+@endpush
