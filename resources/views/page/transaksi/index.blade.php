@@ -1,6 +1,6 @@
 @extends('layouts.panel')
 @section('title')
-    Data Pengguna
+    Transaksi
 @endsection
 
 @push('style')
@@ -15,13 +15,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Master Data</h1>
+                    <h1>Transaksi</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="#">Master Data</a></li>
-                        <li class="breadcrumb-item active"><a href="#">Pengguna</a></li>
+                        <li class="breadcrumb-item"><a href="/transaksi">Transaksi</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Daftar Transaksi</a></li>
                     </ol>
                 </div>
             </div>
@@ -34,7 +34,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Data Pengguna</h3>
+                <h3 class="card-title">Daftar Transaksi</h3>
 
                 <div class="card-tools">
                     {{-- <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -43,7 +43,7 @@
                     <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
                         <i class="fas fa-times"></i>
                     </button> --}}
-                    <a href="/master/Pengguna/create" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> tambahkan pengguna</a>
+                    <a href="/master/transaksi/create" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Buat Transaksi</a>
                 </div>
             </div>
             <div class="card-body">
@@ -52,22 +52,28 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Nama Pengguna</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Alamat</th>
-                                <th>Opsi</th>
+                                <th>TANGGAL</th>                             
+                                <th>NAMA TRANSAKSI</th>
+                                <th>KETERANGAN</th>
+                                <th>JUMLAH</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($data as $i)
                                 <tr>
                                     <th>{{ $loop->iteration }}</th>
-                                    <td>{{ $i->nama }}</td>
-                                    <td>{{ $i->jenis_kelamin }}</td>
-                                    <td>{{ $i->alamat }}</td>
+                                    <td>{{ $i->tgl_transaksi }}</td>
+                                    <td>{{ $i->nm_transaksi }}</td>
+                                    <td>{{ $i->keterangan }}</td>
+                                    <td>Rp.{{ number_format($i->jumlah, 2, '.', '.') }}</td>
                                     <td>
-                                       <a href="" class="btn btn-sm btn-warning">Ubah</a>
-                                        <a href="" class="btn btn-sm btn-danger">Hapus</a>
+                                        <a href="/master/transaksi/{{$i->id}}/edit" class="btn btn-sm btn-warning">Ubah</a>
+                                        <form action="/master/transaksi/{{$i->id}}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                         <button onclick="return confirm('Yakin akan dihapus?')" type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

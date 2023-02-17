@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "c50c9148b6110145524b7d13e813e819",
+=======
+    "content-hash": "88d2080a24b8c7c25df0292d2b18bb87",
+>>>>>>> 1955ca3eb51b212d2c810131d02fb8b0c8ad0169
     "packages": [
         {
             "name": "asantibanez/livewire-charts",
@@ -3007,6 +3011,68 @@
                 }
             ],
             "time": "2023-01-12T18:13:24+00:00"
+<<<<<<< HEAD
+=======
+        },
+        {
+            "name": "spatie/laravel-package-tools",
+            "version": "1.12.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-package-tools.git",
+                "reference": "09f80fa240d44fafb1c70657c74ee44ffa929357"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/09f80fa240d44fafb1c70657c74ee44ffa929357",
+                "reference": "09f80fa240d44fafb1c70657c74ee44ffa929357",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^7.0|^8.0|^9.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4",
+                "orchestra/testbench": "^5.0|^6.23|^7.0",
+                "phpunit/phpunit": "^9.4",
+                "spatie/test-time": "^1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\LaravelPackageTools\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Tools for creating Laravel packages",
+            "homepage": "https://github.com/spatie/laravel-package-tools",
+            "keywords": [
+                "laravel-package-tools",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-package-tools/issues",
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.12.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-06-28T14:29:26+00:00"
+>>>>>>> 1955ca3eb51b212d2c810131d02fb8b0c8ad0169
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3613,6 +3679,7 @@
         },
         {
             "name": "symfony/http-foundation",
+<<<<<<< HEAD
             "version": "v5.4.20",
             "source": {
                 "type": "git",
@@ -3623,6 +3690,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-foundation/zipball/d0435363362a47c14e9cf50663cb8ffbf491875a",
                 "reference": "d0435363362a47c14e9cf50663cb8ffbf491875a",
+=======
+            "version": "v5.4.19",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-foundation.git",
+                "reference": "70fd0eb8a1570ba119d5e496c8ee79bf9f0b51b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/70fd0eb8a1570ba119d5e496c8ee79bf9f0b51b0",
+                "reference": "70fd0eb8a1570ba119d5e496c8ee79bf9f0b51b0",
+>>>>>>> 1955ca3eb51b212d2c810131d02fb8b0c8ad0169
                 "shasum": ""
             },
             "require": {
@@ -3669,7 +3748,11 @@
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
             "support": {
+<<<<<<< HEAD
                 "source": "https://github.com/symfony/http-foundation/tree/v5.4.20"
+=======
+                "source": "https://github.com/symfony/http-foundation/tree/v5.4.19"
+>>>>>>> 1955ca3eb51b212d2c810131d02fb8b0c8ad0169
             },
             "funding": [
                 {
@@ -3685,6 +3768,7 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2023-01-29T11:11:52+00:00"
         },
         {
@@ -3699,6 +3783,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-kernel/zipball/aaeec341582d3c160cc9ecfa8b2419ba6c69954e",
                 "reference": "aaeec341582d3c160cc9ecfa8b2419ba6c69954e",
+=======
+            "time": "2023-01-01T08:32:19+00:00"
+        },
+        {
+            "name": "symfony/http-kernel",
+            "version": "v5.4.19",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-kernel.git",
+                "reference": "ee371cd7718c938d1bffdf868b665003aeeae69c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/ee371cd7718c938d1bffdf868b665003aeeae69c",
+                "reference": "ee371cd7718c938d1bffdf868b665003aeeae69c",
+>>>>>>> 1955ca3eb51b212d2c810131d02fb8b0c8ad0169
                 "shasum": ""
             },
             "require": {
@@ -3781,7 +3881,11 @@
             "description": "Provides a structured process for converting a Request into a Response",
             "homepage": "https://symfony.com",
             "support": {
+<<<<<<< HEAD
                 "source": "https://github.com/symfony/http-kernel/tree/v5.4.20"
+=======
+                "source": "https://github.com/symfony/http-kernel/tree/v5.4.19"
+>>>>>>> 1955ca3eb51b212d2c810131d02fb8b0c8ad0169
             },
             "funding": [
                 {
@@ -3797,7 +3901,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2023-02-01T08:18:48+00:00"
+=======
+            "time": "2023-01-24T13:37:42+00:00"
+>>>>>>> 1955ca3eb51b212d2c810131d02fb8b0c8ad0169
         },
         {
             "name": "symfony/mime",
@@ -5478,6 +5586,75 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "wulfheart/pretty_routes",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Wulfheart/pretty-routes.git",
+                "reference": "e257fac400db2c696ddaec197e634b1fc7c40d22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Wulfheart/pretty-routes/zipball/e257fac400db2c696ddaec197e634b1fc7c40d22",
+                "reference": "e257fac400db2c696ddaec197e634b1fc7c40d22",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^8.0",
+                "php": "^7.4|^8.0",
+                "spatie/laravel-package-tools": "^1.4.3"
+            },
+            "require-dev": {
+                "brianium/paratest": "^6.2",
+                "nunomaduro/collision": "^5.3",
+                "orchestra/testbench": "^6.15",
+                "phpunit/phpunit": "^9.3",
+                "spatie/laravel-ray": "^1.9",
+                "spatie/phpunit-snapshot-assertions": "^4.2",
+                "vimeo/psalm": "^4.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Wulfheart\\PrettyRoutes\\PrettyRoutesServiceProvider"
+                    ],
+                    "aliases": {
+                        "PrettyRoutes": "Wulfheart\\PrettyRoutes\\PrettyRoutesFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Wulfheart\\PrettyRoutes\\": "src",
+                    "Wulfheart\\PrettyRoutes\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Wulf",
+                    "email": "dev@alexfwulf.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Display your Laravel routes in the console, but make it pretty. 😎",
+            "homepage": "https://github.com/wulfheart/pretty_routes",
+            "keywords": [
+                "laravel",
+                "pretty_routes",
+                "wulfheart"
+            ],
+            "support": {
+                "issues": "https://github.com/Wulfheart/pretty-routes/issues",
+                "source": "https://github.com/Wulfheart/pretty-routes/tree/0.3.0"
+            },
+            "time": "2021-05-03T09:19:08+00:00"
         }
     ],
     "packages-dev": [
@@ -5939,6 +6116,7 @@
         },
         {
             "name": "laravel/sail",
+<<<<<<< HEAD
             "version": "v1.19.0",
             "source": {
                 "type": "git",
@@ -5949,6 +6127,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/sail/zipball/4f230634a3163f3442def6a4e6ffdb02b02e14d6",
                 "reference": "4f230634a3163f3442def6a4e6ffdb02b02e14d6",
+=======
+            "version": "v1.18.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/sail.git",
+                "reference": "a64f78a4ab86c04a4c5de39bea20a8d36ad48a22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/a64f78a4ab86c04a4c5de39bea20a8d36ad48a22",
+                "reference": "a64f78a4ab86c04a4c5de39bea20a8d36ad48a22",
+>>>>>>> 1955ca3eb51b212d2c810131d02fb8b0c8ad0169
                 "shasum": ""
             },
             "require": {
@@ -5995,7 +6185,11 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
+<<<<<<< HEAD
             "time": "2023-01-31T13:37:57+00:00"
+=======
+            "time": "2023-01-11T14:35:04+00:00"
+>>>>>>> 1955ca3eb51b212d2c810131d02fb8b0c8ad0169
         },
         {
             "name": "mockery/mockery",

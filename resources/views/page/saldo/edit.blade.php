@@ -32,7 +32,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Buat Saldo</h3>
+                <h3 class="card-title">Topup Saldo</h3>
 
                 <div class="card-tools">
                     {{-- <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -45,38 +45,15 @@
                         Kembali</a>
                 </div>
             </div>
-            <form action="/master/saldo/" method="post">
+        <form action="/master/saldo/{{$saldo->id}}" method="post">
                 @csrf
+                @method('put')
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-
                             <div class="form-group">
-                                <label for="nama" class="form-label">Nama Saldo</label>
-                                <input type="text" name="nama"
-                                    class="form-control @error('nama') is-invalid @enderror" id="nama"
-                                    value="{{ old('nama') }}" required maxlength="100" autocomplete="off"
-                                    placeholder="Misal: Rekening BCA Perusahaan">
-                                @error('nama')
-                                    <span class="invalid-feedback">
-                                        {{ $message }}
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-                                <label for="jumlah" class="form-label">Jumlah Saldo</label>
-                                <input type="text" name="jumlah"
-                                    class="form-control @error('jumlah') is-invalid @enderror" id="jumlah"
-                                    value="{{ old('jumlah') }}" required min="0"
-                                    placeholder="Masukan sisa saldo saat ini">
-                                @error('jumlah')
-                                    <span class="invalid-feedback">
-                                        {{ $message }}
-                                    </span>
-                                @enderror
+                                <label for="topup" class="form-label">Jumlah Topup</label>
+                                <input type="number" name="topup" id="topup">
                             </div>
                         </div>
                     </div>

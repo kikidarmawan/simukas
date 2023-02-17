@@ -71,7 +71,8 @@ class SaldoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $saldo = Saldo::findOrFail($id);
+        return view('page.saldo.edit', compact('saldo'));
     }
 
     /**
@@ -83,7 +84,12 @@ class SaldoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $saldo = Saldo::findOrFail($id);
+
+        $saldo->jumlah += $request->topup;
+        $saldo->update();
+
+        return redirect()->back();
     }
 
     /**
@@ -94,6 +100,9 @@ class SaldoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $saldo = Saldo::findOrFail($id);
+        $saldo->delete();
+    
+        return redirect()->back();
     }
 }
