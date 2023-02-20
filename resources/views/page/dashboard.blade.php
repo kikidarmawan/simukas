@@ -9,14 +9,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Master Data</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="#">Master Data</a></li>
-                        <li class="breadcrumb-item active"><a href="#">kegiatan</a></li>
-                    </ol>
+                    <h1>Dashboard</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -30,14 +23,13 @@
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3>150</h3>
+                  <h3>{{ number_format($saldo)}}</h3>
 
-                  <p>Cek saldo</p>
+                  <p>Total Saldo</p>
                 </div>
                 <div class="icon">
                   <i class="fas fa-money-check-alt"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
               </div>
             </div>
             <!-- ./col -->
@@ -45,14 +37,14 @@
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3>53</h3>
+                  <h3>Rp.1000.000</h3>
 
                   <p>Jumlah pemasukan</p>
                 </div>
                 <div class="icon">
                   <i class="fas fa-download"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                
               </div>
             </div>
             <!-- ./col -->
@@ -60,14 +52,13 @@
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3>Rp.500.000</h3>
 
                   <p>Jumlah pengeluaran</p>
                 </div>
                 <div class="icon">
                   <i class="fas fa-upload"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -82,7 +73,6 @@
                 <div class="icon">
                   <i class="fas fa-history"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
           </div>

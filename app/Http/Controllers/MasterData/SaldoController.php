@@ -89,7 +89,8 @@ class SaldoController extends Controller
         $saldo->jumlah += $request->topup;
         $saldo->update();
 
-        return redirect()->back();
+        return redirect()->to('/master/saldo')->with('berhasil', 'Berhasil menyimpan data');
+
     }
 
     /**

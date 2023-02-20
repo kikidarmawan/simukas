@@ -68,7 +68,7 @@
 
                             <div class="form-group">
                                 <label for="jumlah" class="form-label">Jumlah Saldo</label>
-                                <input type="text" name="jumlah"
+                                <input type="number" name="jumlah"
                                     class="form-control @error('jumlah') is-invalid @enderror" id="jumlah"
                                     value="{{ old('jumlah') }}" required min="0"
                                     placeholder="Masukan sisa saldo saat ini">

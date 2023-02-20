@@ -64,9 +64,7 @@
                                     <td>{{ $i->nm_saldo }}</td>
                                     <td>Rp.{{ number_format($i->jumlah, 2, '.', '.') }}</td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-secondary">Lihat Riwayat</a>
                                         <a href="/master/saldo/{{$i->id}}/edit" class="btn btn-sm btn-warning">Topup</a>
-                                        <a href="/master/saldo" class="btn btn-sm btn-danger">Hapus</a>
                                     </td>
                                 </tr>
                             @endforeach
