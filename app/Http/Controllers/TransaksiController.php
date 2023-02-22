@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Transaksi;
 use App\Models\Saldo;
+use App\Models\SaldoMutasi;
 use Auth;
 
 class TransaksiController extends Controller
@@ -41,9 +42,7 @@ class TransaksiController extends Controller
         if($saldo->jumlah < $request->jumlah){
             return redirect()->to('/master/transaksi')->with('gagal', 'Saldo tidak mencukupi');
         }
-        $saldo->jumlah=$saldo->jumlah-$request->jumlah;
-        $saldo->update();
-
+       
         $transaksi = Transaksi::create([
             'id_user' => Auth::user()->id,
             'nm_transaksi' => $request->nama,
@@ -53,6 +52,21 @@ class TransaksiController extends Controller
             'id_saldo' => $request->saldo
 
         ]);
+
+        $mutasi = SaldoMutasi::create([
+            'id_saldo' => $saldo->id,
+            'jumlah' => $request->jumlah,
+            'jumlah_sebelum' => $saldo->jumlah,
+            'jumlah_sesudah' => $saldo->jumlah + $request->jumlah,
+            'jns_transaksi' => "Transfer",
+            'id_transaksi' => $transaksi->id,
+            'keterangan' => $request->keterangan,
+
+        ]);
+
+        $saldo->jumlah=$saldo->jumlah-$request->jumlah;
+        $saldo->update();
+
 
          return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil menyimpan data');
     }

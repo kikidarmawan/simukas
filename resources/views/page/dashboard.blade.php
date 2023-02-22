@@ -23,7 +23,7 @@
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3>{{ number_format($saldo)}}</h3>
+                  <h4>Rp.{{ number_format($saldo, 2, '.', '.')}}</h4>
 
                   <p>Total Saldo</p>
                 </div>
@@ -37,7 +37,7 @@
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3>Rp.1000.000</h3>
+                <h4>Rp.{{ number_format($saldo, 2, '.', '.')}}</h4>
 
                   <p>Jumlah pemasukan</p>
                 </div>
@@ -52,7 +52,7 @@
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>Rp.500.000</h3>
+                <h4>Rp.{{ number_format($saldo, 2, '.', '.')}}</h4>
 
                   <p>Jumlah pengeluaran</p>
                 </div>
@@ -66,7 +66,7 @@
               <!-- small box -->
               <div class="small-box bg-danger">
                 <div class="inner">
-                   <h3>65</h3>
+                   <h4>0</h4>
 
                   <p>Riwayat Transaksi</p>
                 </div>
@@ -111,84 +111,6 @@
                     </div>
                     <!-- /.chart-responsive -->
                   </div>
-
-
-                  <!-- /.col -->
-                  <div class="col-md-4">
-                    <p class="text-center">
-                      <strong>Goal Completion</strong>
-                    </p>
-
-                    <div class="progress-group">
-                      SALDO
-                      <span class="float-right"> 200</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-primary" style="width: 80%"></div>
-                      </div>
-                    </div>
-
-
-                    <!-- /.progress-group -->
-                    <div class="progress-group">
-                      <span class="progress-text">PEMASUKAN</span>
-                      <span class="float-right">800</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-success" style="width: 60%"></div>
-                      </div>
-                    </div>
-
-                    <!-- /.progress-group -->
-                    <div class="progress-group">
-                      PENGELUARAN
-                      <span class="float-right"> 500</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-warning" style="width: 50%"></div>
-                      </div>
-                    </div>
-                    <!-- /.progress-group -->
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-              </div>
-     <!-- ./card-body -->
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block border-right">
-                      <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 17%</span>
-                      <h5 class="description-header">$35,210.43</h5>
-                      <span class="description-text">TOTAL SALDO</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block border-right">
-                      <span class="description-percentage text-success"><i class="fas fa-caret-left"></i> 0%</span>
-                      <h5 class="description-header">$10,390.90</h5>
-                      <span class="description-text">TOTAL PEMASUKSAN</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block border-right">
-                      <span class="description-percentage text-warning"><i class="fas fa-caret-up"></i> 20%</span>
-                      <h5 class="description-header">$24,813.53</h5>
-                      <span class="description-text">TOTAL PENGELUARAN</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                </div>
-                <!-- /.row -->
-              </div>
-              <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
-        </div>
-        <!-- /.row -->
-        <!-- ChartJS -->
 
 @endsection
 
