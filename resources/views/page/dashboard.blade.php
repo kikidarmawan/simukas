@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Master Data</h1>
+                    <h1>Master Data</h1> 
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -32,13 +32,10 @@
                 <div class="inner">
                   <h3>150</h3>
 
-                  <p>Cek saldo</p>
+                  <p>Total saldo</p>
                 </div>
                 <div class="icon">
                   <i class="fas fa-money-check-alt"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
             </div>
             <!-- ./col -->
             <div class="col-lg-3 col-6">
@@ -51,9 +48,6 @@
                 </div>
                 <div class="icon">
                   <i class="fas fa-download"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
             </div>
             <!-- ./col -->
             <div class="col-lg-3 col-6">
@@ -66,9 +60,6 @@
                 </div>
                 <div class="icon">
                   <i class="fas fa-upload"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
             </div>
             <!-- ./col -->
             <div class="col-lg-3 col-6">
@@ -81,9 +72,6 @@
                 </div>
                 <div class="icon">
                   <i class="fas fa-history"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
             </div>
           </div>
     </section>

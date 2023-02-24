@@ -60,7 +60,8 @@ class SaldoController extends Controller
      */
     public function show($id)
     {
-        //
+        $dashboard = dashboard::with('saldo')->find($saldo);
+        $posts = $dashboard->posts;
     }
 
     /**
@@ -98,7 +99,4 @@ class SaldoController extends Controller
     $saldo->delete();
 
     return redirect('/master/saldo')->with('Berhasil', 'Data Berhsil Di Hapus!');
-    }
-
-    }
-
+    }   

@@ -25,6 +25,8 @@ class TransaksiController extends Controller
     public function create()
     {
         $saldo= Saldo::all();
+        // $transaksi = Transaksi::all();
+        // return $transaksi;
         return view('page.transaksi.create', compact("saldo"));
     }
 
@@ -36,25 +38,32 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
-        $saldo = Saldo::find($request->saldo);
+        //  return $request->all();
+        try {
+            \DB::BeginTransaction();
+            $saldo = Saldo::find($request->saldo);
+            // return $saldo;
         if($saldo->jumlah < $request->jumlah){
             return redirect()->to('/master/transaksi')->with('gagal', 'Saldo tidak mencukupi');
         }
         $saldo->jumlah=$saldo->jumlah-$request->jumlah;
         $saldo->update();
 
-        $transaksi = Transaksi::create([
+        Transaksi::create([
             'id_user' => Auth::user()->id,
             'nm_transaksi' => $request->nama,
             'tgl_transaksi' => $request->tanggal,
             'keterangan' => $request->keterangan,
             'jumlah' => $request->jumlah,
             'id_saldo' => $request->saldo
-
         ]);
-
+        
+        \DB::Commit();
          return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil menyimpan data');
+        } catch (\Throwable $th) {
+            \DB::Rollback();
+            return $th;
+        }
     }
 
     public function edit($id)

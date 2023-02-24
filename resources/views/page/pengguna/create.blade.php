@@ -71,7 +71,9 @@
                                     class="form-control @error('jenis_kelamin') is-invalid @enderror" id="jenis_kelamin"
                                     value="{{ old('jenis_kelamin') }}" required min="0">
                                     <option>--Pilih Jenis Kelamin--</option>
-                                    
+                                    <option>Laki - Laki</option>
+                                    <option>Perempuan</option>
+
                                 </select>                       
                                  @error('Gagal')
                                     <span class="invalid-feedback">
@@ -81,9 +83,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-
-<<<<<<< HEAD
-                            <div class="form-group">
+                             <div class="form-group">
                                 <label for="Alamat" class="form-label">Alamat</label>
                                 <input type="Varchar" name="Alamat"
                                     class="form-control @error('Alamat') is-invalid @enderror" id="Alamat"
@@ -95,25 +95,11 @@
                                     </span>
                                 @enderror
                             </div>
-=======
-                        <div class="form-group">
-                            <label for="alamat" class="form-label">Alamat</label>
-                            <input type="text" name="alamat"
-                                class="form-control @error('Pengguna') is-invalid @enderror" id="alamat"
-                                value="{{ old('alamat') }}" required maxlength="100" autocomplete="off"
-                                placeholder="">
-                            @error('nama')
-                                <span class="invalid-feedback">
-                                    {{ $message }}
-                                </span>
-                            @enderror
->>>>>>> 1955ca3eb51b212d2c810131d02fb8b0c8ad0169
-                        </div>
                         </div>  
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i>  Simpan</button>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
                     <button type="reset" class="btn btn-outline-back">Reset</button>
                 </div>
             </form>

@@ -21,6 +21,8 @@ class DashboardController extends Controller
             $dataPengeluaran[] = $pengeluaran;
         }
 
-        return view('page.dashboard', compact('dataSaldo', 'dataPengeluaran'));
+        
+        $saldo = Saldo::sum('jumlah');
+        return view('page.dashboard', compact('dataSaldo', 'dataPengeluaran', 'saldo'));
     }
 }
