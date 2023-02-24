@@ -80,6 +80,20 @@
                         </div>
                         <div class="col-md-12">
 
+<<<<<<< HEAD
+                            <div class="form-group">
+                                <label for="Alamat" class="form-label">Alamat</label>
+                                <input type="Varchar" name="Alamat"
+                                    class="form-control @error('Alamat') is-invalid @enderror" id="Alamat"
+                                    value="{{ old('Cianjur') }}" required min="0"
+                                    placeholder="Cianjur">
+                                @error('Gagal')
+                                    <span class="invalid-feedback">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
+                            </div>
+=======
                         <div class="form-group">
                             <label for="alamat" class="form-label">Alamat</label>
                             <input type="text" name="alamat"
@@ -91,12 +105,13 @@
                                     {{ $message }}
                                 </span>
                             @enderror
+>>>>>>> 1955ca3eb51b212d2c810131d02fb8b0c8ad0169
                         </div>
                         </div>  
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i>  Simpan</button>
                     <button type="reset" class="btn btn-outline-back">Reset</button>
                 </div>
             </form>
