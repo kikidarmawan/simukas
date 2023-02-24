@@ -36,14 +36,10 @@
                 <h3 class="card-title">Saldo Mutasi</h3>
 
                 <div class="card-tools">
-                    {{-- <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
                     </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                        <i class="fas fa-times"></i>
-                    </button> --}}
-                    <a href="/master/transaksi/create" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> </a>
-                </div>
+               </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -57,11 +53,10 @@
                                 <th>Sesudah</th>
                                 <th>Jenis Transaksi</th>
                                 <th>Keterangan</th>
-                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                         
+                       
                         </tbody>
 
                     </table>

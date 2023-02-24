@@ -80,7 +80,6 @@
                         </div>
                         <div class="col-md-12">
 
-<<<<<<< HEAD
                             <div class="form-group">
                                 <label for="Alamat" class="form-label">Alamat</label>
                                 <input type="Varchar" name="Alamat"
@@ -93,19 +92,6 @@
                                     </span>
                                 @enderror
                             </div>
-=======
-                        <div class="form-group">
-                            <label for="alamat" class="form-label">Alamat</label>
-                            <input type="text" name="alamat"
-                                class="form-control @error('Pengguna') is-invalid @enderror" id="alamat"
-                                value="{{ old('alamat') }}" required maxlength="100" autocomplete="off"
-                                placeholder="">
-                            @error('nama')
-                                <span class="invalid-feedback">
-                                    {{ $message }}
-                                </span>
-                            @enderror
->>>>>>> 1955ca3eb51b212d2c810131d02fb8b0c8ad0169
                         </div>
                         </div>  
                     </div>
