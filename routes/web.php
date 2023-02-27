@@ -6,6 +6,7 @@ use App\Http\Controllers\MasterData\SaldoController;
 use App\Http\Controllers\MasterData\KegiatanController;
 use App\Http\Controllers\MasterData\PenggunaController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\RiwayatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +52,8 @@ Route::group([
     Route::group(['prefix' => 'master'], function () {
         Route::resource('transaksi', TransaksiController::class);
     });
+
+
 
 
 

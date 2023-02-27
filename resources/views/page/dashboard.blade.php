@@ -112,7 +112,7 @@
                 <div class="row">
                   <div class="col-md-8">
                     <p class="text-center">
-                      <strong>Sales: Jan, {{ date('Y') }} - Des, {{ date('Y') }}</strong>
+                      <strong>Sales: Jan, {{ date('Y') }} -  Des, {{ date('Y') }}</strong>
                     </p>
 
                     <div class="chart">
@@ -164,7 +164,7 @@
      <!-- ./card-body -->
               <div class="card-footer">
                 <div class="row">
-                  <div class="col-sm-3 col-6">
+                  <div class="col-sm-4 col-4">
                     <div class="description-block border-right">
                       <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 17%</span>
                       <h5 class="description-header">$35,210.43</h5>
@@ -173,7 +173,7 @@
                     <!-- /.description-block -->
                   </div>
                   <!-- /.col -->
-                  <div class="col-sm-3 col-6">
+                  <div class="col-sm-4 col-4">
                     <div class="description-block border-right">
                       <span class="description-percentage text-success"><i class="fas fa-caret-left"></i> 0%</span>
                       <h5 class="description-header">$10,390.90</h5>
@@ -182,7 +182,7 @@
                     <!-- /.description-block -->
                   </div>
                   <!-- /.col -->
-                  <div class="col-sm-3 col-6">
+                  <div class="col-sm-4 col-4">
                     <div class="description-block border-right">
                       <span class="description-percentage text-warning"><i class="fas fa-caret-up"></i> 20%</span>
                       <h5 class="description-header">$24,813.53</h5>
