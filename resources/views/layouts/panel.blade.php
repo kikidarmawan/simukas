@@ -23,17 +23,39 @@
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/index3.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
+                    <a href="/dashboard" class="nav-link">Home</a>
             </ul>
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
-                
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <div class="navbar-search-block">
+                        <form class="form-inline">
+                            <div class="input-group input-group-sm">
+                                <input class="form-control form-control-navbar" type="search" placeholder="Search"
+                                    aria-label="Search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-navbar" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+                </li>
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -80,9 +102,8 @@
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="/dashboard" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"> <p>Dashboard</p></i>
-                                <p>
-                                </p>
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>Dashboard</p>
                             </a>
                         </li>
                         <li class="nav-item {{ request()->is('master*') ? 'menu-open' : '' }}">
@@ -109,6 +130,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="/master/mutasi"
+                                        class="nav-link {{ request()->is('master/mutasi*') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Saldo Mutasi</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="/master/kegiatan" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data Kegiatan</p>
@@ -126,52 +154,18 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                 <li class="nav-item">
+                            <li class="nav-item">
                                     <a href="/master/transaksi"
                                         class="nav-link {{ request()->is('master/transaksi*') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Buat transaksi</p>
                                     </a>
                                 </li>
+                                </li>
                                 <li class="nav-item">
-                                    <a href="/master/transaksi" class="nav-link">
+                                <a href="/master/transaksi" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Daftar Transaksi</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Grafik
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="../charts/chartjs.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>ChartJS</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../charts/flot.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Flot</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../charts/inline.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Inline</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../charts/uplot.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>uPlot</p>
                                     </a>
                                 </li>
                             </ul>
@@ -186,27 +180,9 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../charts/chartjs.html" class="nav-link">
+                                    <a href="/master/laporan" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>ChartJS</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../charts/flot.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Flot</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../charts/inline.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Inline</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../charts/uplot.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>uPlot</p>
+                                        <p>Riwayat Transaksi</p>
                                     </a>
                                 </li>
                             </ul>
@@ -229,7 +205,7 @@
             <div class="float-right d-none d-sm-block">
                 <b>Version</b> 1.0.0
             </div>
-            <strong>Copyright &copy; 2023 || <a href="https://theprime.id">The Prime</a>.</strong> All
+             <strong>Copyright &copy; 2023 || <a href="https://theprime.id">The Prime</a>.</strong> All
             rights
             reserved.
         </footer>
@@ -244,11 +220,11 @@
 
     <!-- jQuery -->
     {{-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> --}}
-    <script src="{{ asset('plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
-    <script src=" {{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="asset/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src=" {{ asset('dist/js/adminlte.min.js')}}"></script>
+    <script src="{{ asset('dist/js/adminlte.min.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
     {{-- <script src=" {{ asset('/dist/js/demo.js')}}"></script> --}}
 

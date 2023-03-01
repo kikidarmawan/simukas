@@ -90,7 +90,8 @@ class SaldoController extends Controller
         $saldo->jumlah += $request->topup;
         $saldo->update();
 
-        return redirect()->to('/master/saldo')->with('berhasil', 'Tambah Saldo Berhasil');
+        return redirect()->to('/master/saldo')->with('berhasil', 'Berhasil menyimpan data');
+
     }
 
     public function destroy($id)
@@ -100,3 +101,4 @@ class SaldoController extends Controller
 
     return redirect('/master/saldo')->with('Berhasil', 'Data Berhsil Di Hapus!');
     }   
+}

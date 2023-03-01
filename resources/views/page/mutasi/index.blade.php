@@ -1,6 +1,6 @@
 @extends('layouts.panel')
 @section('title')
-    Data Saldo
+    Saldo Mutasi
 @endsection
 
 @push('style')
@@ -20,8 +20,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="#">Master Data</a></li>
-                        <li class="breadcrumb-item active"><a href="#">Saldo</a></li>
+                        <li class="breadcrumb-item"><a href="/transaksi">Transaksi</a></li>
                     </ol>
                 </div>
             </div>
@@ -34,16 +33,16 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Data Saldo</h3>
+                <h3 class="card-title">Saldo Mutasi</h3>
 
                 <div class="card-tools">
                     {{-- <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
                     </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="Remove" title="Remove">
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
                         <i class="fas fa-times"></i>
                     </button> --}}
-                    <a href="/master/saldo/create" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Buat Saldo</a>
+                    <a href="/master/transaksi/create" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> </a>
                 </div>
             </div>
             <div class="card-body">
@@ -52,22 +51,17 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Nama Saldo</th>
-                                <th>Saldo</th>
-                                <th>Opsi</th>
+                                <th>id saldo</th>                             
+                                <th>Jumlah</th>
+                                <th>Sebelum</th>
+                                <th>Sesudah</th>
+                                <th>Jenis Transaksi</th>
+                                <th>Keterangan</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data as $i)
-                                <tr>
-                                    <th>{{ $loop->iteration }}</th>
-                                    <td>{{ $i->nm_saldo }}</td>
-                                    <td>Rp.{{ number_format($i->jumlah, 2, '.', '.') }}</td>
-                                    <td>
-                                        <a href="/master/saldo/{{$i->id}}/edit" class="btn btn-sm btn-warning">Topup</a>
-                                    </td>
-                                </tr>
-                            @endforeach
+                         
                         </tbody>
 
                     </table>

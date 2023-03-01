@@ -20,9 +20,8 @@ class DashboardController extends Controller
             $dataSaldo[] = $saldo;
             $dataPengeluaran[] = $pengeluaran;
         }
-
         
-        $saldo = Saldo::sum('jumlah');
+        $saldo = Saldo::sum( 'jumlah');
         return view('page.dashboard', compact('dataSaldo', 'dataPengeluaran', 'saldo'));
     }
 }
