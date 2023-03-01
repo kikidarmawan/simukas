@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\MasterData;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Saldo;
 use Illuminate\Http\Request;
+use App\Models\SaldoMutasi;
+use App\Models\Saldo;
 
-class SaldoController extends Controller
+class MutasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,7 @@ class SaldoController extends Controller
      */
     public function index()
     {
-        $data = Saldo::all();
-        return view('page.saldo.index', [
-            'data'  => $data
-        ]);
+        return view('page.mutasi.index', );
     }
 
     /**
@@ -28,7 +25,7 @@ class SaldoController extends Controller
      */
     public function create()
     {
-        return view('page.saldo.create');
+        //
     }
 
     /**
@@ -39,17 +36,7 @@ class SaldoController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'nama'  => 'required|string|max:100',
-            'jumlah'    => 'required|numeric|min:0'
-        ]);
-
-        Saldo::create([
-            'nm_saldo'  => $request->nama,
-            'jumlah'    => $request->jumlah
-        ]);
-
-        return redirect()->to('/master/saldo')->with('berhasil', 'Berhasil menyimpan data');
+        //
     }
 
     /**
@@ -71,8 +58,7 @@ class SaldoController extends Controller
      */
     public function edit($id)
     {
-        $saldo = Saldo::findOrFail($id);
-        return view('page.saldo.edit', compact('saldo'));
+        //
     }
 
     /**
@@ -84,22 +70,17 @@ class SaldoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $saldo = Saldo::findOrFail($id);
-
-        $saldo->jumlah += $request->topup;
-        $saldo->update();
-
-        return redirect()->to('/master/saldo')->with('berhasil', 'Berhasil menyimpan data');
-
+        //
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
-    $saldo = saldo::find($id);
-    $saldo->delete();
-
-    return redirect('/master/saldo')->with('Berhasil', 'Data Berhsil Di Hapus!');
+        //
     }
-
-    }
-
+}

@@ -3,6 +3,8 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MasterData\SaldoController;
+use App\Http\Controllers\MutasiController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\MasterData\KegiatanController;
 use App\Http\Controllers\MasterData\PenggunaController;
 use App\Http\Controllers\TransaksiController;
@@ -43,6 +45,10 @@ Route::group([
     });
 
     Route::group(['prefix' => 'master'], function () {
+        Route::resource('mutasi', MutasiController::class);
+    });
+
+    Route::group(['prefix' => 'master'], function () {
         Route::resource('kegiatan', KegiatanController::class);
     });
 
@@ -51,6 +57,9 @@ Route::group([
     });
     Route::group(['prefix' => 'master'], function () {
         Route::resource('transaksi', TransaksiController::class);
+    });
+    Route::group(['prefix' => 'master'], function () {
+        Route::resource('laporan', LaporanController::class);
     });
 
 

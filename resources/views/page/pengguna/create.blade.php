@@ -18,8 +18,7 @@
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="#">Master Data</a></li>
-                        <li class="breadcrumb-item"><a href="/master/pengguna">Pengguna</a></li>
-                        <li class="breadcrumb-item active"><a href="#">Buat</a></li>
+                        <li class="breadcrumb-item"><a href="/master/pengguna">Buat Pengguna</a></li>
                     </ol>
                 </div>
             </div>
@@ -62,7 +61,6 @@
                                     {{ $message }}
                                 </span>
                             @enderror
-                        </div>
                         </div>
                         <div class="col-md-12">
                              <div class="form-group">
