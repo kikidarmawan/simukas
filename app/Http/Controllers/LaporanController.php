@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\models\Transaksi;
 use App\models\Saldo;
+use App\models\SaldoMutasi;
 
 class LaporanController extends Controller
 {

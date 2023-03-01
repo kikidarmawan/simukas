@@ -42,7 +42,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>id saldo</th> 
+                                <th>nama saldo</th> 
                                 <th>Nominal</th>                            
                                 <th>Nama Transaksi</th>
                                 <th>Saldo Sebelum</th>
@@ -52,7 +52,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                         
+                        @foreach ($data as $i)
+                                <tr>
+                                    <th>{{ $loop->iteration }}</th>
+                                    <td>{{ $i->tgl_transaksi }}</td>
+                                    <td>{{ $i->nm_transaksi }}</td>
+                                    <td>{{ $i->keterangan }}</td>
+                                    <td>Rp.{{ number_format($i->jumlah, 2, '.', '.') }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
 
                     </table>

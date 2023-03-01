@@ -81,7 +81,8 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                             <div class="form-group">
+
+                            <div class="form-group">
                                 <label for="Alamat" class="form-label">Alamat</label>
                                 <input type="Varchar" name="Alamat"
                                     class="form-control @error('Alamat') is-invalid @enderror" id="Alamat"
@@ -93,6 +94,7 @@
                                     </span>
                                 @enderror
                             </div>
+                        </div>
                         </div>  
                     </div>
                 </div>

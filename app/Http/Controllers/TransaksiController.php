@@ -39,9 +39,7 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //  return $request->all();
-        try {
-            \DB::BeginTransaction();
+        //   return $request->all();
             $saldo = Saldo::find($request->saldo);
             // return $saldo;
         if($saldo->jumlah < $request->jumlah){
@@ -73,10 +71,6 @@ class TransaksiController extends Controller
 
 
          return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil menyimpan data');
-        } catch (\Throwable $th) {
-            DB::Rollback();
-            return $th;
-        }
     }
 
     public function edit($id)
