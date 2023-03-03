@@ -16,7 +16,8 @@ class MutasiController extends Controller
      */
     public function index()
     {
-        return view('page.mutasi.index', );
+        $mutasi = SaldoMutasi::all();
+        return view('page.mutasi.index', compact('mutasi'));
     }
 
     /**

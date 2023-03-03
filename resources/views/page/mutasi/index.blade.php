@@ -47,7 +47,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>id saldo</th>                             
+                                <th>Nama Saldo</th>                             
                                 <th>Jumlah</th>
                                 <th>Sebelum</th>
                                 <th>Sesudah</th>
@@ -56,9 +56,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                       
+                        @foreach ($mutasi as $i)
+                                <tr>
+                                    <th>{{ $loop->iteration }}</th>
+                                    <th>{{ $i->nm_saldo }}</th>
+                                    <td>{{ $i->jumlah }}</td>
+                                    <td>{{ $i->jumlah_sebelum }}</td>
+                                    <td>{{ $i->jumlah_sesudah }}</td>
+                                    <td>{{ $i->jns_transaksi }}</td>
+                                    <td>{{ $i->keterangan }}</td>
+                                <tr>
+                        @endforeach
                         </tbody>
-
                     </table>
                 </div>
             </div>
