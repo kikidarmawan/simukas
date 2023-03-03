@@ -14,7 +14,7 @@ class TransaksiController extends Controller
     {
         $data = Transaksi::all();
         return view('page.transaksi.index', compact('data'));
-        
+
     }
 
  /**
@@ -45,7 +45,7 @@ class TransaksiController extends Controller
         if($saldo->jumlah < $request->jumlah){
             return redirect()->to('/master/transaksi')->with('gagal', 'Saldo tidak mencukupi');
         }
-       
+
         $transaksi = Transaksi::create([
             'id_user' => Auth::user()->id,
             'nm_transaksi' => $request->nama,
@@ -59,7 +59,7 @@ class TransaksiController extends Controller
             'id_saldo' => $saldo->id,
             'jumlah' => $request->jumlah,
             'jumlah_sebelum' => $saldo->jumlah,
-            'jumlah_sesudah' => $saldo->jumlah + $request->jumlah,
+            'jumlah_sesudah' => $saldo->jumlah - $request->jumlah,
             'jns_transaksi' => "Transfer",
             'id_transaksi' => $transaksi->id,
             'keterangan' => $request->keterangan,

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\Transaksi;
+use App\models\Laporan;
 use App\models\Saldo;
 use App\models\SaldoMutasi;
 
@@ -16,10 +17,9 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        $data = Transaksi::all();
-        return view('page.laporan.index', [
-            'data'  => $data
-        ]);
+       $laporan = Laporan::with('Transaksi', 'Saldo')->get();
+
+       return view('page.Laporan.index', compact('laporan'));
     }
 
     /**
@@ -38,6 +38,11 @@ class LaporanController extends Controller
         //
     }
 
+    public function Laporan()
+    {
+
+        return $this->belongsTo('mutasi');
+    }
     /**
      * Display the specified resource.
      *

@@ -45,7 +45,7 @@
                         Kembali</a>
                 </div>
             </div>
-            <form action="/master/Pengguna" method="post">
+            <form action="/master/Pengguna/" method="post">
                 @csrf
                 <div class="card-body">
                     <div class="row">
@@ -99,7 +99,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
                     <button type="reset" class="btn btn-outline-back">Reset</button>
                 </div>
             </form>
