@@ -14,7 +14,7 @@ class TransaksiController extends Controller
     {
         $data = Transaksi::all();
         return view('page.transaksi.index', compact('data'));
-        
+
     }
 
  /**
@@ -26,6 +26,8 @@ class TransaksiController extends Controller
     public function create()
     {
         $saldo= Saldo::all();
+        // $transaksi = Transaksi::all();
+        // return $transaksi;
         return view('page.transaksi.create', compact("saldo"));
     }
 
@@ -37,12 +39,13 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
-        $saldo = Saldo::find($request->saldo);
+        //   return $request->all();
+            $saldo = Saldo::find($request->saldo);
+            // return $saldo;
         if($saldo->jumlah < $request->jumlah){
             return redirect()->to('/master/transaksi')->with('gagal', 'Saldo tidak mencukupi');
         }
-       
+
         $transaksi = Transaksi::create([
             'id_user' => Auth::user()->id,
             'nm_transaksi' => $request->nama,
@@ -50,14 +53,13 @@ class TransaksiController extends Controller
             'keterangan' => $request->keterangan,
             'jumlah' => $request->jumlah,
             'id_saldo' => $request->saldo
-
         ]);
 
         $mutasi = SaldoMutasi::create([
             'id_saldo' => $saldo->id,
             'jumlah' => $request->jumlah,
             'jumlah_sebelum' => $saldo->jumlah,
-            'jumlah_sesudah' => $saldo->jumlah + $request->jumlah,
+            'jumlah_sesudah' => $saldo->jumlah - $request->jumlah,
             'jns_transaksi' => "Transfer",
             'id_transaksi' => $transaksi->id,
             'keterangan' => $request->keterangan,

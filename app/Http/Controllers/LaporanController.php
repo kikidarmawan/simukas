@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\models\Transaksi;
+use App\models\Laporan;
+use App\models\Saldo;
+use App\models\SaldoMutasi;
 
 class LaporanController extends Controller
 {
@@ -13,9 +17,9 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        $title = 'hiystori transaksi';
+       $laporan = Laporan::with('Transaksi', 'Saldo')->get();
 
-        return view('page.laporan.index',compact('title',));
+       return view('page.Laporan.index', compact('laporan'));
     }
 
     /**
@@ -23,11 +27,6 @@ class LaporanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -39,6 +38,11 @@ class LaporanController extends Controller
         //
     }
 
+    public function Laporan()
+    {
+
+        return $this->belongsTo('mutasi');
+    }
     /**
      * Display the specified resource.
      *
@@ -81,6 +85,9 @@ class LaporanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $saldo = Transaksi::find($id);
+        $saldo->delete();
+
+        return redirect()->to('/master/laporan')->with('berhasil', 'Berhasil menghapus data');
     }
 }

@@ -108,9 +108,9 @@ class PenggunaController extends Controller
      */
     public function destroy($id)
     {
-        $pengguna=Pengguna::find($id);
-        $pengguna->delete();
+        $Pengguna = user::find($id);
+        $Pengguna->delete();
 
-        return redirect()->to('/master/Pengguna')->with('berhasil', 'Berhasil menghapus data');
+        return redirect()->to('/master/laporan')->with('berhasil', 'Berhasil menghapus data');
     }
 }
