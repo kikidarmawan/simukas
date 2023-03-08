@@ -13,7 +13,9 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        return view('page.laporan.index');
+        $title = 'hiystori transaksi';
+
+        return view('page.laporan.index',compact('title',));
     }
 
     /**

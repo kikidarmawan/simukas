@@ -9,5 +9,5 @@ class Pengguna extends Model
 {
     use HasFactory;
     public $table = 'tb_pengguna';
-    protected $fillable = ['id', 'nm_pengguna', 'tempat_tinggal', 'jumlah_pengeluaran', 'jumlah_pemasukan', 'created_at', 'updated_at'];
+    protected $fillable = [ 'nama','jenis_kelamin','alamat'];
 }

@@ -26,13 +26,14 @@ Route::group([
     'middleware' => ['guest:web']
 ], function () {
     Route::get('/', function () {
+        // return "Ok";
         return view('auth.login');
     });
 
     Route::get('/login', function () {
         return view('auth.login');
     })->name('login');
-    Route::post('/login', [LoginController::class, 'proses'])->name('login');
+     Route::post('/login', [LoginController::class, 'proses']);
 });
 
 Route::group([
