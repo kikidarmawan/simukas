@@ -41,7 +41,7 @@ class LaporanController extends Controller
     public function Laporan()
     {
 
-        return $this->belongsTo('mutasi');
+        return $this->belongsTo('SaldoMutasi');
     }
     /**
      * Display the specified resource.

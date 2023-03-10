@@ -100,5 +100,5 @@ class SaldoController extends Controller
     $saldo->delete();
 
     return redirect('/master/saldo')->with('Berhasil', 'Data Berhsil Di Hapus!');
-    }   
+    }
 }
