@@ -69,8 +69,8 @@
                                     class="form-control @error('jenis_kelamin') is-invalid @enderror" id="jenis_kelamin"
                                     value="{{ old('jenis_kelamin') }}" required min="0">
                                     <option>--Pilih Jenis Kelamin--</option>
-                                    <option>Laki - Laki</option>
-                                    <option>Perempuan</option>
+                                    <option value="laki-laki">Laki - Laki</option>
+                                    <option value="perempuan">Perempuan</option>
 
                                 </select>
                                  @error('Gagal')
@@ -84,7 +84,7 @@
 
                             <div class="form-group">
                                 <label for="alamat" class="form-label">Alamat</label>
-                                <input type="Varchar" name="alamat"
+                                <input type="text" name="alamat"
                                     class="form-control @error('alamat') is-invalid @enderror" id="alamat"
                                     value="{{ old('Cianjur') }}" required min="0"
                                     placeholder="Cianjur">

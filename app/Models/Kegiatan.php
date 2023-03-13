@@ -9,5 +9,5 @@ class Kegiatan extends Model
 {
     use HasFactory;
     public $table = 'tb_kegiatan';
-    protected $fillable = ['id', 'nm_kegiatan', 'tgl_kegiatan', 'jumlah_pengeluaran', 'jumlah_pemasukan', 'created_at', 'updated_at'];
+    protected $fillable = ['id', 'nm_kegiatan', 'tgl_kegiatan', 'jumlah_pengeluaran', 'jumlah_pemasukan'];
 }

@@ -45,8 +45,9 @@
                         Kembali</a>
                 </div>
             </div>
-            <form action="/master/kegiatan/" method="post">
+            <form action="{{ route('Pengguna.update', $pengguna->id) }}" method="post">
                 @csrf
+                @method('put')
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
@@ -55,7 +56,7 @@
                                 <label for="nm_kegiatan" class="form-label">nama Kegiatan</label>
                                 <input type="varchar" name="nm_kegiatan"
                                     class="form-control @error('nm_kegiatan') is-invalid @enderror" id="nm_kegiatan"
-                                    value="{{ old('nm_kegiatan') }}" required maxlength="100" autocomplete="off"
+                                    value="{{ $kegiatan->nm_kegiatan }}" required maxlength="100" autocomplete="off"
                                     placeholder="Misal: Transfer">
                                 @error('nm_kegiatan')
                                     <span class="invalid-feedback">
@@ -64,8 +65,6 @@
                                 @enderror
                             </div>
                         </div>
-                    </div>
-                </div>
                         <div class="col-md-6">
 
                         <div class="form-group">
@@ -79,7 +78,7 @@
                         <label for="jumlah_pengeluaran" class="form-label">jumlah pengeluaran</label>
                         <input type="text" name="jumlah_pengeluaran"
                             class="form-control @error('jumlah_pengeluaran') is-invalid @enderror" id="jumlah_pengeluaran"
-                            value="{{ old('jumlah_pengeluaran') }}" required min="0"
+                            value="{{ $kegiatan->jumlah_pengeluaran) }}" required min="0"
                             placeholder="Masukan saldo saat ini">
                         @error('jumlah_pengeluaran')
                             <span class="invalid-feedback">
@@ -88,13 +87,15 @@
                         @enderror
                     </div>
                 </div>
+            </div>
+        </div>
         <div class="col-md-6">
 
             <div class="form-group">
                 <label for="jumlah_pemasukan" class="form-label">jumlah pemasukan</label>
                 <input type="text" name="jumlah_pemasukan"
                     class="form-control @error('jumlah_pemasukan') is-invalid @enderror" id="jumlah_pemasukan"
-                    value="{{ old('jumlah_pemasukan') }}" required min="0"
+                    value="{{ $kegiatan->jumlah_pemasukan }}" required min="0"
                     placeholder="Masukan saldo saat ini">
                 @error('jumlah_pemasukan')
                     <span class="invalid-feedback">
@@ -103,6 +104,8 @@
                 @enderror
             </div>
         </div>
+    </div>
+</div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
                     <button type="reset" class="btn btn-outline-secondary">Reset</button>

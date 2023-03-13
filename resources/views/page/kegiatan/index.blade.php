@@ -43,7 +43,7 @@
                     <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
                         <i class="fas fa-times"></i>
                     </button> --}}
-                    <a href="/master/Kegiatan/create" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> buat kegiatan</a>
+                    <a href="/master/kegiatan/create" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> buat kegiatan</a>
                 </div>
             </div>
             <div class="card-body">
@@ -53,7 +53,9 @@
                             <tr>
                                 <th>#</th>
                                 <th>nama kegiatan</th>
-                                <th>transfer</th>
+                                <th>tanggal kegiatan</th>
+                                <th>jumlah pengeluaran</th>
+                                <th>jumlah pemasukan</th>
                                 <th>Opsi</th>
                             </tr>
                         </thead>
@@ -61,12 +63,18 @@
                             @foreach ($data as $i)
                                 <tr>
                                     <th>{{ $loop->iteration }}</th>
-                                    <td>{{ $i->nm_saldo }}</td>
-                                    <td>Rp.{{ number_format($i->jumlah, 2, '.', '.') }}</td>
+                                    <td>{{ $i->nm_kegiatan }}</td>
+                                    <td>{{ $i->tgl_kegiatan }}</td>
+                                    <td>{{ $i->jumlah_pengeluaran }}</td>
+                                    <td>{{ $i->jumlah_pemasukan }}</td>
                                     <td>
                                         <a href="" class="btn btn-sm btn-secondary">Lihat Riwayat</a>
-                                        <a href="" class="btn btn-sm btn-warning">Ubah</a>
-                                        <a href="" class="btn btn-sm btn-danger">Hapus</a>
+                                        <a href="/master/kegiatan/{{$i->id}}/edit" class="btn btn-sm btn-warning">Ubah</a>
+                                       <form action="/master/kegiatan/{{$i->id}}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button onclick="return confirm('Yakin Akan dihapus?')" type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                       </form>
                                     </td>
                                 </tr>
                             @endforeach

@@ -40,13 +40,17 @@ class KegiatanController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama'  => 'required|string|max:100',
-            'jumlah'    => 'required|numeric|min:0'
+            'nm_kegiatan'  => 'required|string|max:100',
+            'tgl_kegiatan'    => 'required',
+            'jumlah_pengeluaran'    => 'required|numeric|min:0',
+            'jumlah_pemasukan'    => 'required|numeric|min:0'
         ]);
 
         kegiatan::create([
-            'nm_saldo'  => $request->nama,
-            'jumlah'    => $request->jumlah
+            'nm_kegiatan'  => $request->nm_kegiatan,
+            'tgl_kegiatan'    => $request->tgl_kegiatan,
+            'jumlah_pengeluaran'    => $request->jumlah_pengeluaran,
+            'jumlah_pemasukan'    => $request->jumlah_pemasukan
         ]);
 
         return redirect()->to('/master/kegiatan')->with('berhasil', 'Berhasil menyimpan data');
@@ -71,7 +75,8 @@ class KegiatanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kegiatan = kegiatan::findOrFail($id);
+        return view('page.kegiatan.edit', compact('kegiatan'));
     }
 
     /**
@@ -83,7 +88,17 @@ class KegiatanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // return $request->all();
+        $kegiatan=kegiatan::find($id);
+        $kegiatan->update([
+            'nm_kegiatan'  => $request->nm_kegiatan,
+            'tgl_kegiatan'    => $request->tgl_kegiatan,
+            'jumlah_pengeluaran'    => $request->jumlah_pengeluaran,
+            'jumlah_pemasukan'    => $request->jumlah_pemasukan
+        ]);
+
+
+        return redirect()->to('/master/kegiatan')->with('berhasil', 'Berhasil mengubah data');
     }
 
     /**
@@ -94,6 +109,9 @@ class KegiatanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kegiatan=kegiatan::find($id);
+        $kegiatan->delete();
+
+        return redirect()->to('/master/kegiatan')->with('berhasil', 'Berhasil menghapus data');
     }
 }
