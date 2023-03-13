@@ -52,7 +52,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>TANGGAL</th>                             
+                                <th>TANGGAL</th>
                                 <th>NAMA TRANSAKSI</th>
                                 <th>KETERANGAN</th>
                                 <th>JUMLAH</th>

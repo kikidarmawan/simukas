@@ -12,7 +12,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Buat Pengguna</h1>
+                    <h1> Edit Pengguna</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -31,7 +31,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Buat Pengguna</h3>
+                <h3 class="card-title">Edit Pengguna</h3>
 
                 <div class="card-tools">
                 <div class="card-tools">
@@ -45,16 +45,17 @@
                         Kembali</a>
                 </div>
             </div>
-            <form action="/master/Pengguna/" method="post">
+            <form action="{{ route('Pengguna.update', $pengguna->id) }}" method="post">
                 @csrf
+                @method('put')
                 <div class="card-body">
                     <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-lg-8">
                         <div class="form-group">
                            <label for="Pengguna" class="form-label">Nama Pengguna</label>
                             <input type="varchar" name="nama"
                                 class="form-control @error('Pengguna') is-invalid @enderror" id="nama"
-                                value="{{ old('nama') }}" required maxlength="100" autocomplete="off"
+                                value="{{ $pengguna->nama }}" required maxlength="100" autocomplete="off"
                                  placeholder="">
                             @error('nama')
                                 <span class="invalid-feedback">
@@ -62,15 +63,16 @@
                                 </span>
                             @enderror
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-lg-8">
                              <div class="form-group">
                                 <label for="enum" class="form-label">Jenis Kelamin</label>
                                 <select name="jenis_kelamin"
                                     class="form-control @error('jenis_kelamin') is-invalid @enderror" id="jenis_kelamin"
-                                    value="{{ old('jenis_kelamin') }}" required min="0">
+                                    value="{{ $pengguna->jenis_kelamin }}" required min="0">
                                     <option>--Pilih Jenis Kelamin--</option>
-                                    <option>Laki - Laki</option>
-                                    <option>Perempuan</option>
+                                    <option>laki-laki</option>
+                                    <option> perempuan</option>
+
 
                                 </select>
                                  @error('Gagal')
@@ -80,13 +82,14 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-lg-8">
+
 
                             <div class="form-group">
                                 <label for="alamat" class="form-label">Alamat</label>
                                 <input type="Varchar" name="alamat"
                                     class="form-control @error('alamat') is-invalid @enderror" id="alamat"
-                                    value="{{ old('Cianjur') }}" required min="0"
+                                    value="{{ $pengguna->alamat }}" required min="0"
                                     placeholder="Cianjur">
                                 @error('Gagal')
                                     <span class="invalid-feedback">
@@ -98,8 +101,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
-                    <button type="reset" class="btn btn-outline-back">Reset</button>
+                    <button type="submit" class="btn btn-warning"> Simpan</button>
                 </div>
             </form>
             <!-- /.card-footer-->

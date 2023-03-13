@@ -39,14 +39,18 @@ class PenggunaController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request, [
             'nama'  => 'required|string|max:100',
-            'tgl_pembuatan'    => 'required|numeric|min:0'
+            'alamat'    => 'required',
+            'jenis_kelamin'  => 'required'
         ]);
 
         Pengguna::create([
-            'nm_pengguna'  => $request->nama,
-            'tempat_tinggal'    => $request->jumlah
+            'nama'  => $request->nama,
+            'alamat'    => $request->alamat,
+            'jenis_kelamin'  =>$request->jenis_kelamin
+
         ]);
 
         return redirect()->to('/master/Pengguna')->with('berhasil', 'Berhasil menyimpan data');
@@ -60,7 +64,7 @@ class PenggunaController extends Controller
      */
     public function show($id)
     {
-        //
+       //
     }
 
     /**
@@ -71,7 +75,8 @@ class PenggunaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pengguna = Pengguna::findOrFail($id);
+        return view('page.pengguna.edit', compact('pengguna'));
     }
 
     /**
@@ -83,7 +88,16 @@ class PenggunaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // return $request->all();
+        $pengguna=Pengguna::find($id);
+        $pengguna->update([
+            'nama'  => $request->nama,
+            'alamat'    => $request->alamat,
+            'jenis_kelamin'  =>$request->jenis_kelamin
+        ]);
+
+
+        return redirect()->to('/master/Pengguna')->with('berhasil', 'Berhasil mengubah data');
     }
 
     /**

@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Master Data</h1>
+                    <h1>Data Pengguna</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -66,8 +66,12 @@
                                     <td>{{ $i->jenis_kelamin }}</td>
                                     <td>{{ $i->alamat }}</td>
                                     <td>
-                                       <a href="" class="btn btn-sm btn-warning">Ubah</a>
-                                        <a href="" class="btn btn-sm btn-danger">Hapus</a>
+                                       <a href="/master/Pengguna/{{$i->id}}/edit" class="btn btn-sm btn-warning">Ubah</a>
+                                       <form action="/master/Pengguna/{{$i->id}}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button onclick="return confirm('Yakin Akan dihapus?')" type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                       </form>
                                     </td>
                                 </tr>
                             @endforeach
