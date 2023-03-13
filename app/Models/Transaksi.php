@@ -11,7 +11,6 @@ class Transaksi extends Model
     use HasFactory;
     public $table = 'tb_transaksi';
     protected $fillable = [
-        'id',
         'id_user', 
         'id_kegiatan', 
         'id_saldo',
@@ -20,9 +19,7 @@ class Transaksi extends Model
         'jumlah',
         'tgl_transaksi',
         'bukti',
-        'keterangan',
-        'created_at',
-        'updated_at'
+        'keterangan'
         ];
 };
 

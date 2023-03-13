@@ -37,7 +37,7 @@
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                <h4>Rp.{{ number_format($saldo, 2, '.', '.')}}</h4>
+                <h4>Rp.{{ number_format($pemasukan, 2, '.', '.')}}</h4>
 
                   <p>Jumlah pemasukan</p>
                 </div>
@@ -52,7 +52,7 @@
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                <h4>Rp.{{ number_format($saldo, 2, '.', '.')}}</h4>
+                <h4>Rp.{{ number_format($transaksi, 2, '.', '.')}}</h4>
 
                   <p>Jumlah pengeluaran</p>
                 </div>
@@ -66,7 +66,7 @@
               <!-- small box -->
               <div class="small-box bg-danger">
                 <div class="inner">
-                   <h4>0</h4>
+                   <h4>{{$banyakTransaksi}}</h4>
 
                   <p>Riwayat Transaksi</p>
                 </div>
@@ -81,16 +81,14 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="card-title">Monthly Recap Report</h5>
+                <h5 class="card-title">Laporan Rekap Bulanan</h5>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
                   </button>
                   <div class="btn-group">
-                    <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
-                      <i class="fas fa-wrench"></i>
-                    </button>
+                    
                   </div>
                   <button type="button" class="btn btn-tool" data-card-widget="remove">
                     <i class="fas fa-times"></i>
@@ -100,14 +98,14 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
-                  <div class="col-md-8">
+                  <div class="col-md-12">
                     <p class="text-center">
                       <strong>Sales: Jan, {{ date('Y') }} - Des, {{ date('Y') }}</strong>
                     </p>
 
                     <div class="chart">
                       <!-- Sales Chart Canvas -->
-                      <canvas id="areaChart" height="180" style="height: 180px;"></canvas>
+                      <canvas id="areaChart" height="250" style="height: 250px;"></canvas>
                     </div>
                     <!-- /.chart-responsive -->
                   </div>

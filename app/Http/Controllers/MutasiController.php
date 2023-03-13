@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaksi;
+use App\Models\Laporan;
 use App\Models\SaldoMutasi;
 use App\Models\Saldo;
 
@@ -16,8 +17,9 @@ class MutasiController extends Controller
      */
     public function index()
     {
-        $mutasi = SaldoMutasi::all();
-        return view('page.mutasi.index', compact('mutasi'));
+        $posts = SaldoMutasi::with('transaksi', 'saldo')->get();
+
+       return view('page.mutasi.index', compact('posts'));
     }
 
     /**
@@ -39,6 +41,11 @@ class MutasiController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function Mutasi()
+    {
+        return $this->hasMany('id_saldo,id_saldo');
     }
 
     /**

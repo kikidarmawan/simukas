@@ -55,7 +55,6 @@
                                 <th>TANGGAL</th>                             
                                 <th>NAMA TRANSAKSI</th>
                                 <th>KETERANGAN</th>
-                                <th>NAMA SALDO</th>
                                 <th>JUMLAH</th>
                                 <th>Aksi</th>
                             </tr>
@@ -67,7 +66,6 @@
                                     <td>{{ $i->tgl_transaksi }}</td>
                                     <td>{{ $i->nm_transaksi }}</td>
                                     <td>{{ $i->keterangan }}</td>
-                                    <td>{{ $i->nm_saldo }}</td>
                                     <td>Rp.{{ number_format($i->jumlah, 2, '.', '.') }}</td>
                                     <td>
                                         <a href="/master/transaksi/{{$i->id}}/edit" class="btn btn-sm btn-warning">Ubah</a>

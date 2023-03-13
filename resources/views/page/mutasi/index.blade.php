@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Master Data</h1>
+                    <h1>Saldo Mutasi</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -33,7 +33,6 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Saldo Mutasi</h3>
 
                 <div class="card-tools">
                      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -47,26 +46,26 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Nama Saldo</th>                             
+                                <th>Nama Saldo</th>
                                 <th>Jumlah</th>
-                                <th>Sebelum</th>
-                                <th>Sesudah</th>
+                                <th>Saldo Sebelum</th>
+                                <th>Saldo Sesudah</th>
                                 <th>Jenis Transaksi</th>
                                 <th>Keterangan</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach ($mutasi as $i)
-                                <tr>
-                                    <th>{{ $loop->iteration }}</th>
-                                    <th>{{ $i->nm_saldo }}</th>
-                                    <td>{{ $i->jumlah }}</td>
-                                    <td>{{ $i->jumlah_sebelum }}</td>
-                                    <td>{{ $i->jumlah_sesudah }}</td>
-                                    <td>{{ $i->jns_transaksi }}</td>
-                                    <td>{{ $i->keterangan }}</td>
-                                <tr>
-                        @endforeach
+                       @foreach ($posts as $post)
+                           <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $post->saldo->nm_saldo }}</td>
+                            <td>Rp.{{ number_format($post->jumlah,0,',','.') }}</td>
+                            <td>Rp.{{ number_format($post->jumlah_sebelum,0,'.','.') }}</td>
+                            <td>Rp.{{ number_format($post->jumlah_sesudah,0,'.','.') }}</td>
+                            <td>{{ $post->jns_transaksi }}</td>
+                            <td>{{ $post->keterangan }}</td>
+                           </tr>
+                       @endforeach
                         </tbody>
                     </table>
                 </div>

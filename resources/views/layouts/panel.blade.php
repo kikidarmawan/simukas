@@ -103,9 +103,7 @@
                         <li class="nav-item">
                             <a href="/dashboard" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Dashboard
-                                </p>
+                                <p>Dashboard</p>
                             </a>
                         </li>
                         <li class="nav-item {{ request()->is('master*') ? 'menu-open' : '' }}">
@@ -160,7 +158,7 @@
                                     <a href="/master/transaksi/create"
                                         class="nav-link {{ request()->is('master/transaksi*') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Buat Transaksi</p>
+                                        <p>Buat transaksi</p>
                                     </a>
                                 </li>
                                 </li>
@@ -184,7 +182,7 @@
                                 <li class="nav-item">
                                     <a href="/master/laporan" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Riwayat Transaksi</p>
+                                        <p>Laporan Transaksi</p>
                                     </a>
                                 </li>
                             </ul>
@@ -228,7 +226,7 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.min.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
-    {{-- <script src="/dist/js/demo.js"></script> --}}
+    {{-- <script src=" {{ asset('/dist/js/demo.js')}}"></script> --}}
 
     @include('components.alert')
 

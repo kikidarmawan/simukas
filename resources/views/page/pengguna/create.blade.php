@@ -45,7 +45,7 @@
                         Kembali</a>
                 </div>
             </div>
-            <form action="/master/Pengguna" method="post">
+            <form action="/master/Pengguna/" method="post">
                 @csrf
                 <div class="card-body">
                     <div class="row">
@@ -69,7 +69,9 @@
                                     class="form-control @error('jenis_kelamin') is-invalid @enderror" id="jenis_kelamin"
                                     value="{{ old('jenis_kelamin') }}" required min="0">
                                     <option>--Pilih Jenis Kelamin--</option>
-                                    
+                                    <option>Laki - Laki</option>
+                                    <option>Perempuan</option>
+
                                 </select>                       
                                  @error('Gagal')
                                     <span class="invalid-feedback">
@@ -97,7 +99,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i>  Simpan</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
                     <button type="reset" class="btn btn-outline-back">Reset</button>
                 </div>
             </form>
