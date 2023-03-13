@@ -70,7 +70,7 @@ class TransaksiController extends Controller
         $saldo->update();
 
 
-         return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil menyimpan data');
+         return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil Membuat Transaksi');
     }
 
     public function edit($id)
@@ -89,13 +89,13 @@ class TransaksiController extends Controller
             'jumlah' => $request->jumlah,
         ]);
 
-        return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil menyimpan data');
+        return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil Mengubah Data Transaksi');
     }
 
     public function destroy($id){
         $transaksi = Transaksi::find($id);
         $transaksi->delete();
 
-        return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil menghapus data');
+        return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil Menghapus Data Transaksi');
     }
 }

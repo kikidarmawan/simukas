@@ -17,9 +17,20 @@ class LaporanController extends Controller
      */
     public function index()
     {
-       $laporan = Laporan::with('Transaksi', 'Saldo')->get();
+        $bulan = date('m');
+        $tahun = date('Y');
+        $dataJumlah = [];
+        $jumlahHari = cal_days_in_month(CAL_GREGORIAN, $bulan, $tahun);
+        $tanggal = [];
 
-       return view('page.Laporan.index', compact('laporan'));
+        for($hari=1; $hari <= $jumlahHari; $hari++){
+            $transaksiJumlah = Transaksi::whereDay('tgl_transaksi', $hari)->sum('jumlah');
+
+            $dataJumlah[] = $transaksiJumlah;
+            $tanggal[] = $hari . '-' . $bulan;
+        }
+
+            return view('page.laporan.index', compact ('dataJumlah', 'tanggal'));
     }
 
     /**
@@ -85,9 +96,6 @@ class LaporanController extends Controller
      */
     public function destroy($id)
     {
-        $saldo = Transaksi::find($id);
-        $saldo->delete();
-
-        return redirect()->to('/master/laporan')->with('berhasil', 'Berhasil menghapus data');
+       
     }
 }

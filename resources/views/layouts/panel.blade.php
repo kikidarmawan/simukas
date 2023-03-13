@@ -155,7 +155,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                    <a href="/master/transaksi"
+                                    <a href="/master/transaksi/create"
                                         class="nav-link {{ request()->is('master/transaksi*') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Buat transaksi</p>
@@ -182,25 +182,7 @@
                                 <li class="nav-item">
                                     <a href="/master/laporan" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>ChartJS</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../charts/flot.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Flot</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../charts/inline.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Inline</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../charts/uplot.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>uPlot</p>
+                                        <p>Laporan Transaksi</p>
                                     </a>
                                 </li>
                             </ul>
