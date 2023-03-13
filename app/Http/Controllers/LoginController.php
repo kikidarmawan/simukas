@@ -36,4 +36,5 @@ class LoginController extends Controller
             throw $th;
         }
     }
+
 }

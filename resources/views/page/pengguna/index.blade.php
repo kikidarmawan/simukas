@@ -66,8 +66,12 @@
                                     <td>{{ $i->jenis_kelamin }}</td>
                                     <td>{{ $i->alamat }}</td>
                                     <td>
-                                       <a href="" class="btn btn-sm btn-warning">Ubah</a>
-                                        <a href="" class="btn btn-sm btn-danger">Hapus</a>
+                                       <a href="/master/Pengguna/{{$i->id}}/edit" class="btn btn-sm btn-warning">Ubah</a>
+                                       <form action="/master/Pengguna/{{$i->id}}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button onclick="return confirm('Yakin Akan dihapus?')" type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                       </form>
                                     </td>
                                 </tr>
                             @endforeach

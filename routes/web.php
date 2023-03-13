@@ -8,7 +8,10 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\MasterData\KegiatanController;
 use App\Http\Controllers\MasterData\PenggunaController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\RiwayatController;
+use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +28,15 @@ Route::group([
     'middleware' => ['guest:web']
 ], function () {
     Route::get('/', function () {
+        // return "Ok";
         return view('auth.login');
     });
 
     Route::get('/login', function () {
         return view('auth.login');
     })->name('login');
-    Route::post('/login', [LoginController::class, 'proses'])->name('login');
+     Route::post('/login', [LoginController::class, 'proses']);
+
 });
 
 Route::group([
@@ -59,7 +64,10 @@ Route::group([
     });
     Route::group(['prefix' => 'master'], function () {
         Route::resource('laporan', LaporanController::class);
+
     });
+
+    Route::delete('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 
 

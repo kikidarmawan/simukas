@@ -182,12 +182,36 @@
                                 <li class="nav-item">
                                     <a href="/master/laporan" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Riwayat Transaksi</p>
+                                        <p>ChartJS</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../charts/flot.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Flot</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../charts/inline.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Inline</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../charts/uplot.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>uPlot</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-
+                        <li class="naw-item border-top">
+                            <form action=" {{ route('auth.logout') }}" method="post" onsubmit="return confirm('Apakah anda yakin ingin keluar?')">
+                                @method('DELETE')
+                                @csrf
+                                <button class="w-full py-3 px-3 d-block bg-transparent border-0 fw-bold text-danger text-center"><i class="bi bi-box-arrow-right"></i> Keluar</button>
+                            </form>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

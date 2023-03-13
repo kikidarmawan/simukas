@@ -44,7 +44,7 @@
                 <div class="icon">
                   <i class="fas fa-download"></i>
                 </div>
-                
+
               </div>
             </div>
             <!-- ./col -->
@@ -102,7 +102,7 @@
                 <div class="row">
                   <div class="col-md-8">
                     <p class="text-center">
-                      <strong>Sales: Jan, {{ date('Y') }} - Des, {{ date('Y') }}</strong>
+                      <strong>Sales: Jan, {{ date('Y') }} -  Des, {{ date('Y') }}</strong>
                     </p>
 
                     <div class="chart">
