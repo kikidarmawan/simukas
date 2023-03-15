@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Transaksi;
 use App\Models\Saldo;
+use App\Models\kegiatan;
 use App\Models\SaldoMutasi;
 use Auth;
 
@@ -12,7 +13,7 @@ class TransaksiController extends Controller
 {
     public function index()
     {
-        $data = Transaksi::all();
+         $data = Transaksi::with(['kegiatan'])->orderBy('created_at', 'desc')->get();
         return view('page.transaksi.index', compact('data'));
 
     }
@@ -26,9 +27,12 @@ class TransaksiController extends Controller
     public function create()
     {
         $saldo= Saldo::all();
+        $kegiatan= kegiatan::all();
         // $transaksi = Transaksi::all();
         // return $transaksi;
-        return view('page.transaksi.create', compact("saldo"));
+        return view('page.transaksi.create', compact("saldo", "kegiatan"));
+
+
     }
 
        /**
@@ -39,8 +43,9 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //   return $request->all();
+        //  return $request->all();
             $saldo = Saldo::find($request->saldo);
+            $kegiatan = kegiatan::find($request->id_kegiatan);
             // return $saldo;
         if($saldo->jumlah < $request->jumlah){
             return redirect()->to('/master/transaksi')->with('gagal', 'Saldo tidak mencukupi');
@@ -52,8 +57,13 @@ class TransaksiController extends Controller
             'tgl_transaksi' => $request->tanggal,
             'keterangan' => $request->keterangan,
             'jumlah' => $request->jumlah,
-            'id_saldo' => $request->saldo
+            'id_saldo' => $request->saldo,
+            'id_kegiatan' => $kegiatan->id
         ]);
+
+        // $kegiatan = kegiatan::create([
+        //     'id_kegiatan' => $request->kegiatan,
+        // ]);
 
         $mutasi = SaldoMutasi::create([
             'id_saldo' => $saldo->id,
@@ -70,7 +80,7 @@ class TransaksiController extends Controller
         $saldo->update();
 
 
-         return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil menyimpan data');
+         return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil Membuat Transaksi');
     }
 
     public function edit($id)
@@ -89,13 +99,13 @@ class TransaksiController extends Controller
             'jumlah' => $request->jumlah,
         ]);
 
-        return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil menyimpan data');
+        return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil Mengubah Data Transaksi');
     }
 
     public function destroy($id){
         $transaksi = Transaksi::find($id);
         $transaksi->delete();
 
-        return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil menghapus data');
+        return redirect()->to('/master/transaksi')->with('berhasil', 'Berhasil Menghapus Data Transaksi');
     }
 }

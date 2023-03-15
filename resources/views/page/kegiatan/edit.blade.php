@@ -45,7 +45,7 @@
                         Kembali</a>
                 </div>
             </div>
-            <form action="{{ route('Pengguna.update', $pengguna->id) }}" method="post">
+            <form action="{{ route('kegiatan.update', $kegiatan->id) }}" method="post">
                 @csrf
                 @method('put')
                 <div class="card-body">
@@ -65,6 +65,8 @@
                                 @enderror
                             </div>
                         </div>
+                    </div>
+                </div>
                         <div class="col-md-6">
 
                         <div class="form-group">
@@ -78,7 +80,7 @@
                         <label for="jumlah_pengeluaran" class="form-label">jumlah pengeluaran</label>
                         <input type="text" name="jumlah_pengeluaran"
                             class="form-control @error('jumlah_pengeluaran') is-invalid @enderror" id="jumlah_pengeluaran"
-                            value="{{ $kegiatan->jumlah_pengeluaran) }}" required min="0"
+                            value="{{ $kegiatan->jumlah_pengeluaran }}" required min="0"
                             placeholder="Masukan saldo saat ini">
                         @error('jumlah_pengeluaran')
                             <span class="invalid-feedback">
@@ -87,8 +89,6 @@
                         @enderror
                     </div>
                 </div>
-            </div>
-        </div>
         <div class="col-md-6">
 
             <div class="form-group">
@@ -104,8 +104,6 @@
                 @enderror
             </div>
         </div>
-    </div>
-</div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
                     <button type="reset" class="btn btn-outline-secondary">Reset</button>

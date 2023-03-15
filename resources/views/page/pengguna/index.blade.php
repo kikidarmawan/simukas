@@ -53,20 +53,20 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nama Pengguna</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Alamat</th>
+                                <th>Email</th>
                                 <th>Opsi</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $no = 1;
+                            @endphp
                             @foreach ($data as $i)
                                 <tr>
-                                    <th>{{ $loop->iteration }}</th>
-                                    <td>{{ $i->nama }}</td>
-                                    <td>{{ $i->jenis_kelamin }}</td>
-                                    <td>{{ $i->alamat }}</td>
-                                    <td>
-                                       <a href="/master/Pengguna/{{$i->id}}/edit" class="btn btn-sm btn-warning">Ubah</a>
+                                    <th scope="row"> {{ $no++ }}</th>
+                                    <td>{{ $i->name }}</td>
+                                    <td>{{ $i->email }}</td>                                    <td>
+                                       <button type="button" class="btn btn-sm btn-warning" data-toggle="modal"  data-target="#modal-sm-{{ $i->id }}">Ubah</button>
                                        <form action="/master/Pengguna/{{$i->id}}" method="post">
                                         @csrf
                                         @method('delete')
@@ -90,9 +90,46 @@
 
     </section>
     <!-- /.content -->
+
+      <!-- /.modal -->
+
+      <div class="modal fade" id="modal-sm-{{ $i->id }}">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Masukan Password</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form action="/master/pengguna-edit" method="post">
+                @csrf
+                <div class="modal-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                          <input type="hidden" name="id_pengguna" value="{{ $i->id }}">
+                          <input type="password" class="form-control" name="password" placeholder="Masukan Password">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Teruskan</button>
+                  </div>
+            </form>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
 @endsection
 
 @push('script')
+<!-- jQuery -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>

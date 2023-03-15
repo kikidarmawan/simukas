@@ -5,6 +5,8 @@ namespace App\Http\Controllers\MasterData;
 use App\Http\Controllers\Controller;
 use App\Models\Pengguna;
 use Illuminate\Http\Request;
+use Auth;
+use Illuminate\Support\Facades\Hash;
 
 class PenggunaController extends Controller
 {
@@ -41,16 +43,14 @@ class PenggunaController extends Controller
     {
 
         $this->validate($request, [
-            'nama'  => 'required|string|max:100',
-            'alamat'    => 'required',
-            'jenis_kelamin'  => 'required'
+            'name'  => 'required|string|max:100',
+            'email'    => 'required',
+            'password'    => 'required'
         ]);
 
         Pengguna::create([
-            'nama'  => $request->nama,
-            'alamat'    => $request->alamat,
-            'jenis_kelamin'  =>$request->jenis_kelamin
-
+            'name'  => $request->name,
+            'email'    => $request->email
         ]);
 
         return redirect()->to('/master/Pengguna')->with('berhasil', 'Berhasil menyimpan data');
@@ -73,6 +73,30 @@ class PenggunaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     public function cekPengguna(Request $request)
+     {
+
+         //  dd($user, $request->all());
+         $validate = $this->validate($request, [
+             'password'    => 'required'
+             ]
+            );
+
+            $user = Auth::user();
+       try {
+        if (!Hash::check($request->password, $user->password)) {
+            return redirect()->back()->with('error', 'Password tidak sesuai');
+        }
+
+        $pengguna = Pengguna::findOrFail($request->id_pengguna);
+        return view('page.pengguna.edit', compact('pengguna'));
+       } catch (\Throwable $th) {
+        throw $th;
+       }
+
+     }
+
     public function edit($id)
     {
         $pengguna = Pengguna::findOrFail($id);
@@ -91,9 +115,8 @@ class PenggunaController extends Controller
         // return $request->all();
         $pengguna=Pengguna::find($id);
         $pengguna->update([
-            'nama'  => $request->nama,
-            'alamat'    => $request->alamat,
-            'jenis_kelamin'  =>$request->jenis_kelamin
+            'name'  => $request->name,
+            'email'    => $request->email
         ]);
 
 

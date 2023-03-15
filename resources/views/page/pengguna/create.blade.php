@@ -49,45 +49,27 @@
                 @csrf
                 <div class="card-body">
                     <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                            <label for="Pengguna" class="form-label">Nama Pengguna</label>
-                            <input type="varchar" name="nama"
-                                class="form-control @error('Pengguna') is-invalid @enderror" id="nama"
-                                value="{{ old('nama') }}" required maxlength="100" autocomplete="off"
+                            <input type="varchar" name="name"
+                                class="form-control @error('Pengguna') is-invalid @enderror" id="name"
+                                value="{{ old('name') }}" required maxlength="100" autocomplete="off"
                                  placeholder="">
-                            @error('nama')
+                            @error('name')
                                 <span class="invalid-feedback">
                                     {{ $message }}
                                 </span>
                             @enderror
                         </div>
-                        <div class="col-md-12">
-                             <div class="form-group">
-                                <label for="enum" class="form-label">Jenis Kelamin</label>
-                                <select name="jenis_kelamin"
-                                    class="form-control @error('jenis_kelamin') is-invalid @enderror" id="jenis_kelamin"
-                                    value="{{ old('jenis_kelamin') }}" required min="0">
-                                    <option>--Pilih Jenis Kelamin--</option>
-                                    <option value="laki-laki">Laki - Laki</option>
-                                    <option value="perempuan">Perempuan</option>
-
-                                </select>
-                                 @error('Gagal')
-                                    <span class="invalid-feedback">
-                                        {{ $message }}
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
 
                             <div class="form-group">
-                                <label for="alamat" class="form-label">Alamat</label>
-                                <input type="text" name="alamat"
-                                    class="form-control @error('alamat') is-invalid @enderror" id="alamat"
-                                    value="{{ old('Cianjur') }}" required min="0"
-                                    placeholder="Cianjur">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="varchar" name="email"
+                                    class="form-control @error('email') is-invalid @enderror" id="email"
+                                    value="{{ old('email') }}" required min="0"
+                                    placeholder="email">
                                 @error('Gagal')
                                     <span class="invalid-feedback">
                                         {{ $message }}

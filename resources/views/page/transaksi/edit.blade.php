@@ -48,15 +48,43 @@
                 @csrf
                 @method('put')
                 <div class="card-body">
-                    <div class="row">  
+                    <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="keterangan" class="form-label">nama kegiatan</label>
+                                    <select name="id_kegiatan"
+                                        class="form-control @error('id_kegiatan') is-invalid @enderror" id="id_kegiatan"
+                                        value="{{ old('nm_kegianatan') }}" required min="0">
+                                        <option>--Pilih Kegiatan--</option>
+                                        @foreach($saldo as $value)
+                                        <option value="{{ $value->id }}">{{ $value->nm_saldo }}</option>
+                                        @endforeach
+
+                                    </select>
+                                    @error('keterangan')
+                                        <span class="invalid-feedback">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+                                </div>
                                 <label for="nama" class="form-label">Nama Transaksi</label>
                                 <input type="text" name="nama"
                                     class="form-control @error('nama') is-invalid @enderror" id="nama"
                                     value="{{$transaksi->nm_transaksi }}" required maxlength="100" autocomplete="off"
                                     placeholder="#">
                                 @error('nama')
+                                    <span class="invalid-feedback">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="jenis_trx" class="form-label">jenis Transaksi</label>
+                                <input type="text" name="jenis_trx"
+                                    class="form-control @error('jenis_trx') is-invalid @enderror" id="jenis_trx"
+                                    value="{{ old('jenis_trx') }}" required maxlength="100" autocomplete="off"
+                                    placeholder="#">
+                                @error('jenis_trx')
                                     <span class="invalid-feedback">
                                         {{ $message }}
                                     </span>
@@ -92,8 +120,8 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>                         
-                     </div>             
+                        </div>
+                     </div>
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>

@@ -55,6 +55,8 @@
                                 <th>TANGGAL</th>
                                 <th>NAMA TRANSAKSI</th>
                                 <th>KETERANGAN</th>
+                                <th>NAMA KEGIATAN</th>
+                                <th>JENIS TERANSAKSI</th>
                                 <th>JUMLAH</th>
                                 <th>Aksi</th>
                             </tr>
@@ -66,6 +68,8 @@
                                     <td>{{ $i->tgl_transaksi }}</td>
                                     <td>{{ $i->nm_transaksi }}</td>
                                     <td>{{ $i->keterangan }}</td>
+                                    <td>{{ $i->kegiatan->nm_kegiatan}}</td>
+                                    <td>{{ $i->jenis_trx}}</td>
                                     <td>Rp.{{ number_format($i->jumlah, 2, '.', '.') }}</td>
                                     <td>
                                         <a href="/master/transaksi/{{$i->id}}/edit" class="btn btn-sm btn-warning">Ubah</a>

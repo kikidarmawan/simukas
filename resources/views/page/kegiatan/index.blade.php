@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Master Data</h1>
+                    <h1>Data Kegiatan</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -68,7 +68,7 @@
                                     <td>{{ $i->jumlah_pengeluaran }}</td>
                                     <td>{{ $i->jumlah_pemasukan }}</td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-secondary">Lihat Riwayat</a>
+                                        <a href="/master/transaksi/" class="btn btn-sm btn-secondary">Lihat Transaksi</a>
                                         <a href="/master/kegiatan/{{$i->id}}/edit" class="btn btn-sm btn-warning">Ubah</a>
                                        <form action="/master/kegiatan/{{$i->id}}" method="post">
                                         @csrf

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\MasterData;
 
 use App\Http\Controllers\Controller;
 use App\Models\Saldo;
+use App\Models\SaldoMutasi;
 use Illuminate\Http\Request;
 
 class SaldoController extends Controller
@@ -44,12 +45,23 @@ class SaldoController extends Controller
             'jumlah'    => 'required|numeric|min:0'
         ]);
 
+
+    try {
+        \DB::beginTransaction();
         Saldo::create([
             'nm_saldo'  => $request->nama,
             'jumlah'    => $request->jumlah
         ]);
 
-        return redirect()->to('/master/saldo')->with('berhasil', 'Berhasil menyimpan data');
+      
+
+        \DB::commit();
+
+        return redirect()->to('/master/saldo')->with('berhasil', 'Berhasil Menambahkan Rekening');
+    } catch (\Throwable $th) {
+        \DB::rollback();
+        throw $th;
+    }
     }
 
     /**
@@ -89,8 +101,16 @@ class SaldoController extends Controller
 
         $saldo->jumlah += $request->topup;
         $saldo->update();
+        $mutasi = SaldoMutasi::create([
+            'id_saldo' => $saldo->id,
+            'jumlah' => $request->topup,
+            'jumlah_sebelum' => $saldo->jumlah,
+            'jumlah_sesudah' => $saldo->jumlah + $request->topup,
+            'jns_transaksi' => "TopUp",
 
-        return redirect()->to('/master/saldo')->with('berhasil', 'Berhasil menyimpan data');
+        ]);
+
+        return redirect()->to('/master/saldo')->with('berhasil', 'Berhasil Melakukan TopUp');
 
     }
 
@@ -100,5 +120,5 @@ class SaldoController extends Controller
     $saldo->delete();
 
     return redirect('/master/saldo')->with('Berhasil', 'Data Berhsil Di Hapus!');
-    }   
+    }
 }

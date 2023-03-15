@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Master Data</h1>
+                    <h1>Riwayat Transaksi</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -33,41 +33,15 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Riwayat Transaksi</h3>
+                <h3 class="card-title">Laporan Transaksi Bulanan</h3>
 
             </div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table" id="example1">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>nama saldo</th>
-                                <th>Nominal</th>
-                                <th>Nama Transaksi</th>
-                                <th>Saldo Sebelum</th>
-                                <th>Saldo Sesudah</th>
-                                <th>Jenis Transaksi</th>
-                                <th>Keterangan</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        @foreach ($laporan as $i)
-                                <tr>
-                                    <th>{{ $loop->iteration }}</th>
-                                    <td>{{ $i->id_saldo }}</td>
-                                    <td>{{ $i->jumlah }}</td>
-                                    <td>{{ $i->sebelum }}</td>
-                                    <td>{{ $i->sesudah }}</td>
-                                    <td>{{ $i->jenis_trx }}</td>
-                                    <td>{{ $i->keterangan }}</td>
-                                    <td>Rp.{{ number_format($i->jumlah, 2, '.', '.') }}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-
-                    </table>
-                </div>
+                <!-- /.card -->
+        <div class="chart">
+                      <!-- Sales Chart Canvas -->
+                      <canvas id="areaChart" height="250" style="height: 250px;"></canvas>
+                    </div>
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
@@ -75,35 +49,62 @@
             </div>
             <!-- /.card-footer-->
         </div>
-        <!-- /.card -->
 
     </section>
     <!-- /.content -->
 @endsection
 
 @push('script')
-    <script src="/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="/plugins/jszip/jszip.min.js"></script>
-    <script src="/plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="/plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="/../plugins/chart.js/Chart.min.js"></script>
+<script>
+    $(function () {
+      var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
 
-    <script>
-        $(function() {
-            $("#example1").DataTable({
-                "responsive": true,
-                "lengthChange": false,
-                "autoWidth": true,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      var areaChartData = {
+        labels  : {!! json_encode($tanggal) !!},
+        datasets: [
+          {
+            label               : 'pengeluaran',
+            backgroundColor     : 'rgba(60,141,188,0.9)',
+            borderColor         : 'rgba(60,141,188,0.8)',
+            pointRadius          : false,
+            pointColor          : '#3b8bba',
+            pointStrokeColor    : 'rgba(60,141,188,1)',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(60,141,188,1)',
+            data                : {!! json_encode($dataJumlah) !!}
+          },
+        ]
+      }
 
-        })
-    </script>
+      var areaChartOptions = {
+        maintainAspectRatio : false,
+        responsive : true,
+        datasetFill : false,
+        legend: {
+          display: true
+        },
+        scales: {
+          xAxes: [{
+            gridLines : {
+              display : true,
+            }
+          }],
+          yAxes: [{
+            gridLines : {
+              display : true,
+            }
+          }]
+        }
+      }
+
+      // This will get the first returned node in the jQuery collection.
+      new Chart(areaChartCanvas, {
+        type: 'bar',
+        data: areaChartData,
+        options: areaChartOptions
+      })
+
+    })
+  </script>
 @endpush

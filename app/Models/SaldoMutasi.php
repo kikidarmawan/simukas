@@ -21,4 +21,9 @@ class SaldoMutasi extends Model
     {
         return $this->belongsTo(Saldo::class, 'id_saldo', 'id');
     }
+
+    public function Laporan()
+    {
+        return $this->belongsTo(Laporan::class, 'id_transaksi', 'id');
+    }
 }

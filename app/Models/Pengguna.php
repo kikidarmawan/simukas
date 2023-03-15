@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Pengguna extends Model
 {
     use HasFactory;
-    public $table = 'tb_pengguna';
-    protected $fillable = [ 'nama','jenis_kelamin','alamat'];
+    public $table = 'tb_user';
+    protected $fillable = [ 'nama','email', 'password'];
 }

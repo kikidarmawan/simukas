@@ -47,8 +47,9 @@
             <form action="/master/transaksi" method="post">
                 @csrf
                 <div class="card-body">
-                    <div class="row">  
+                    <div class="row">
                         <div class="col-md-12">
+
                             <div class="form-group">
                                 <label for="nama" class="form-label">Nama Transaksi</label>
                                 <input type="text" name="nama"
@@ -61,6 +62,43 @@
                                     </span>
                                 @enderror
                             </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="kegiatan" class="form-label">Nama kegiatan</label>
+                            <select name="id_kegiatan"
+                                class="form-control @error('id_kegiatan') is-invalid @enderror" id="id_kegiatan"
+                                value="{{ old('id_kegiatan') }}" required min="0">
+                                <option>--Pilih Kegiatan--</option>
+                                @foreach($kegiatan as $value)
+                                <option value="{{ $value->id }}">{{ $value->nm_kegiatan }}</option>
+                                @endforeach
+
+                            </select>
+                            @error('kegiatan')
+                                <span class="invalid-feedback">
+                                    {{ $message }}
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="kegiatan" class="form-label">Jenis teransaksi</label>
+                            <select name="jenis_trx"
+                                class="form-control @error('jenis_trx') is-invalid @enderror" id="jenis_trx"
+                                value="{{ old('jenis_trx') }}" required min="0">
+                                <option>--Pilih Jenis transaksi--</option>
+                               <option value="pemasukan">pemasukan</option>
+                                <option value="pengeluaran">pengeluaran</option>
+
+                            </select>
+                            @error('kegiatan')
+                                <span class="invalid-feedback">
+                                    {{ $message }}
+                                </span>
+                            @enderror
+                        </div>
+
                             <div class="form-group">
                                 <label for="nama" class="form-label">Tanggal</label>
                                 <input type="date" name="tanggal" class="form-control">
@@ -79,6 +117,7 @@
                                     </span>
                                 @enderror
                             </div>
+
                             <div class="form-group">
                                 <label for="jumlah" class="form-label">Jumlah Nominal </label>
                                 <input type="number" name="jumlah"
@@ -91,7 +130,7 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div> 
+                        </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="keterangan" class="form-label">Saldo</label>
@@ -102,15 +141,15 @@
                                     @foreach($saldo as $value)
                                     <option value="{{ $value->id }}">{{ $value->nm_saldo }}</option>
                                     @endforeach
-                               
+
                                 </select>
                                 @error('keterangan')
                                     <span class="invalid-feedback">
                                         {{ $message }}
                                     </span>
                                 @enderror
-                            </div>                        
-                     </div>             
+                            </div>
+                     </div>
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>

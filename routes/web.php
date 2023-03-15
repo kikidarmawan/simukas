@@ -9,7 +9,9 @@ use App\Http\Controllers\MasterData\KegiatanController;
 use App\Http\Controllers\MasterData\PenggunaController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\RiwayatController;
+use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,7 @@ Route::group([
         return view('auth.login');
     })->name('login');
      Route::post('/login', [LoginController::class, 'proses']);
+
 });
 
 Route::group([
@@ -54,6 +57,7 @@ Route::group([
     });
 
     Route::group(['prefix' => 'master'], function () {
+        Route::post('/pengguna-edit', [PenggunaController::class, 'cekPengguna']);
         Route::resource('Pengguna', PenggunaController::class);
     });
     Route::group(['prefix' => 'master'], function () {
@@ -61,9 +65,10 @@ Route::group([
     });
     Route::group(['prefix' => 'master'], function () {
         Route::resource('laporan', LaporanController::class);
+
     });
 
-
+    Route::delete('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 
 

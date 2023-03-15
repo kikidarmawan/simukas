@@ -155,7 +155,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                    <a href="/master/transaksi"
+                                    <a href="/master/transaksi/create"
                                         class="nav-link {{ request()->is('master/transaksi*') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Buat transaksi</p>
@@ -182,13 +182,18 @@
                                 <li class="nav-item">
                                     <a href="/master/laporan" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>ChartJS</p>
+                                        <p>Laporan Transaksi</p>
                                     </a>
                                 </li>
-
                             </ul>
                         </li>
-
+                        <li class="naw-item border-top">
+                            <form action=" {{ route('auth.logout') }}" method="post" onsubmit="return confirm('Apakah anda yakin ingin keluar?')">
+                                @method('DELETE')
+                                @csrf
+                                <button class="w-full py-3 px-3 d-block bg-transparent border-0 fw-bold text-danger text-center"><i class="bi bi-box-arrow-right"></i> Keluar</button>
+                            </form>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
